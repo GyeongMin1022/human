@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2번</title>
+    <style>
+        /* 1번째 줄 */
+        .sticky {
+
+            position: sticky;
+            top: 0;
+            background-color: black;
+            margin-bottom: 13px;
+            z-index: 999;
+
+        }
+
+        .sticky>div {
+            display: inline-block;
+            height: 50px;
+            padding-top: 5px;
+        }
+
+        .floatL {
+            float: left;
+        }
+
+        .floatR {
+            float: Right;
+        }
+
+        .today {
+            background-color: #84C639;
+            color: white;
+            font-size: 1.5em;
+            line-height: 45px;
+            padding: 0 40px;
+        }
+
+        .contact {
+            background-color: red;
+            color: white;
+
+            font-size: 20px;
+            font-weight: bolder;
+
+            line-height: 45px;
+            margin: 0;
+            padding: 0 50px;
+        }
+
+        .search {
+            width: 800px;
+            text-align: center;
+
+        }
+
+        .search input {
+            height: 40px;
+        }
+
+        .search input[type="text"] {
+            width: 300px;
+        }
+
+        .bt1 {
+            background-color: red;
+            width: 50px;
+            height: 44px !important;
+
+            text-align: right;
+            position: relative;
+            left: -4px;
+        }
+
+        .bt2 {
+            background-color: rgba(0, 0, 0, 0);
+            color: #fff;
+            border-color: #84C639;
+            padding: 0 5px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* 2번째 줄 */
+        .line2 {
+            /* border: 1px solid red; */
+            display: flex;
+            justify-content: space-between;
+            align-items: end;
+
+            height: 130px;
+            line-height: 130px;
+
+            background-color: #fff;
+        }
+
+        h1 {
+            /* border: 1px solid red; */
+            font-size: 60px;
+            margin-top: 50px;
+            padding: 10px 30px;
+            line-height: 90%;
+            position: relative;
+            top: 15px;
+        }
+
+        .br {
+            margin: 0 15px;
+        }
+
+        /* fixed */
+        .fixed {
+            width: 100px;
+            /* height: 60px; */
+            line-height: 60px;
+            text-align: center;
+
+            background-color: #1f2e5e;
+            color: #858585;
+
+
+            position: fixed;
+            top: 90px;
+            right: 5px;
+            border-radius: 30px 0 0 30px;
+            z-index: 1;
+
+        }
+
+        .fixed>p {
+            background-color: #1f2e5e;
+            color: #858585;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 0;
+            margin: 0;
+            border-radius: 10px;
+        }
+
+        /* 세번째 줄 */
+        .home {
+            background-color: #84C639;
+            height: 60px;
+            line-height: 60px;
+            padding-left: 20px;
+        }
+
+        /* 좌측메뉴 */
+        table {
+            width: 280px;
+            color: #212121;
+            background-color: #eee;
+            border-collapse: collapse;
+        }
+
+        td {
+            height: 40px;
+            line-height: 40px;
+            border-bottom: 1px dotted #cdcdcd;
+            padding-left: 40px;
+        }
+
+        /* 본문 */
+        .content {
+            position: relative;
+        }
+
+        .content>div {
+            /* border: 1px solid red; */
+            display: inline-block;
+            height: 400px;
+
+        }
+
+        .content>div>img {
+            width: 115%;
+            height: 80%;
+        }
+
+        .img {
+            width: 70%;
+
+            background-image: url;
+            vertical-align: top;
+
+        }
+
+        .context {
+            font-size: 35px;
+            text-align: center;
+            width: 450px;
+            position: absolute;
+            background-color: white;
+            color: red;
+            top: 25%;
+            left: 45%;
+
+        }
+
+        /* 중앙글씨 */
+        .centertext {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bolder;
+            padding-bottom: 10px;
+        }
+
+        .bottomline {
+            border-bottom: 4px solid red;
+        }
+
+        /* 상품 4개 */
+        .cleaning {
+            /* border: 1px solid red; */
+            margin-left: 300px;
+            display: flex;
+            justify-content: start;
+            width: 75%;
+            text-align: center;
+            line-height: 200%;
+        }
+
+        .product {
+            width: 220px;
+            border: 1px solid #BEBEBE;
+            padding: 7px;
+            margin: 0 5px;
+        }
+
+        .border {
+
+            border: 1px solid #D7D7D7;
+        }
+
+        /* 상품 3개 */
+        .cleaning2 {
+            margin-left: 300px;
+            display: flex;
+            justify-content: start;
+            width: 75%;
+            text-align: center;
+            line-height: 200%;
+        }
+
+        .cleaning2 .product {
+            width: 220px;
+            border: 1px solid #BEBEBE;
+            padding: 7px;
+            margin: 0 5px;
+
+        }
+
+        .bold {
+            font-weight: bold;
+        }
+
+        .cline {
+            text-decoration: line-through;
+        }
+        .border input[type="button"]{
+            width: 150px;
+            height: 30px;
+            text-align: center;
+            background-color: red;
+            border-color: red;
+            color: white;
+            margin-bottom: 10px;
+        }
+        .center{
+            text-align: center;
+        }
+
+    </style>
+</head>
+
+<body>
+    <!-- 맨위 스티키 -->
+    <div class="sticky clearfix">
+        <div class="floatL today">Today's specail Offers !</div>
+        <div class="search">
+            <input type="text" placeholder="Search a product...">
+            <input type="button" class="bt1" value="🔍">
+            <input type="button" class="bt2" value="View Your Cart 🛒">
+            <span style="color: #fff;">🤵 ▼ </span>
+        </div>
+        <div class="floatR contact"> Contact Us </div>
+    </div>
+
+    <!-- store 메뉴 전화번호 이메일 플렉스 이용 -->
+    <div class="line2">
+        <div class="store">
+            <h1>
+                <span style="font-size: 20px; color: red; line-height: 50%;">GROCERY</span>
+                <br>STORE
+            </h1>
+        </div>
+        <div class="menu">
+            <span class="br">Events</span> <span class="br">/</span>
+            <span class="br">About Us</span> <span class="br">/</span>
+            <span class="br">Best Deals</span> <span class="br">/</span>
+            <span class="br">Services</span>
+        </div>
+        <div class="mail">
+            <span class="br">📞 (+0123) 234 567 </span>
+            <span class="br"></span>
+            <span class="br">✉️ store@grocery.com</span>
+        </div>
+    </div>
+    <!-- fixed -->
+    <div class="fixed">
+        <p>>></p>
+        <hr>
+        <p>←<br>Back</p>
+        <p>💾<br>Download</p>
+        <p>🛒<br>Buy</p>
+    </div>
+    <!-- home households text align right -->
+    <div class="home">
+        <span class="br" style="color: red;">
+            🏠︎ <span style="color: white;">Home</span>
+        </span>
+        <span class="br">|</span>
+        <span class="br">Households</span>
+    </div>
+    <!-- 좌측메뉴 + 본문 -->
+    <div class="content">
+        <div class="table">
+            <table>
+                <tr>
+                    <td>Brand Foods</td>
+                </tr>
+                <tr>
+                    <td>Household</td>
+                </tr>
+                <tr>
+                    <td>Veggies & Fruits</td>
+                </tr>
+                <tr>
+                    <td>Kitchen</td>
+                </tr>
+                <tr>
+                    <td>Short Codes</td>
+                </tr>
+                <tr>
+                    <td>Beverages</td>
+                </tr>
+                <tr>
+                    <td>Pet Food</td>
+                </tr>
+                <tr>
+                    <td>Frozen Foods</td>
+                </tr>
+                <tr>
+                    <td>Bread & Bakery</td>
+                </tr>
+            </table>
+        </div>
+        <div class="img">
+            <img src="https://p.w3layouts.com/demos/july-2016/07-07-2016/grocery_store/web/images/16.jpg">
+            <div class="context">Best Deals For New<br>Products</div>
+        </div>
+    </div>
+
+    <!-- Household Products 밑줄 가운데만 작게 -->
+    <div class="centertext">Househ<span class="bottomline">old P</span>roducts</div>
+    <!-- cleaning 상품 4개 -->
+    <div style="margin: 20px 0px 20px 310px; font-size: 30px;">CLEANING</div>
+    <div class="cleaning">
+
+        <div class="product">
+            <div class="border">
+                <img src="https://p.w3layouts.com/demos/july-2016/07-07-2016/grocery_store/web/images/17.png">
+                <br>Dishwash Gel, Lemon (1.5 Ltr)
+                <br><span class="bold">$8.00</span> <span class="cline">$10.00</span>
+                <div class="center"><input type="button" value="ADD TO CART"></div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="border">
+                <img src="https://p.w3layouts.com/demos/july-2016/07-07-2016/grocery_store/web/images/18.png">
+                <br>Dish Wash Bar (500 Gm)
+                <br><span class="bold">$2.00</span> <span class="cline">$4.00</span>
+                <div class="center"><input type="button" value="ADD TO CART"></div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="border">
+                <img src="https://p.w3layouts.com/demos/july-2016/07-07-2016/grocery_store/web/images/19.png">
+                <br>Air Freshener (50 Gm)
+                <br><span class="bold">$3.00</span> <span class="cline">$5.00</span>
+                <div class="center"><input type="button" value="ADD TO CART"></div>
+            </div>
+        </div>
+
+        <div class="product">
+            <div class="border">
+                <img src="https://p.w3layouts.com/demos/july-2016/07-07-2016/grocery_store/web/images/20.png">
+                <br>Toilet Cleaner Expert (1 Ltr)
+                <br><span class="bold">$6.00</span> <span class="cline">$7.00</span>
+                <div class="center"><input type="button" value="ADD TO CART"></div>
+            </div>
+        </div>
+    </div>
+    <!-- utensils 상품 3개 -->
+    <div style="margin: 20px 0px 20px 310px; font-size: 30px;">UTENSILS</div>
+    <div class="cleaning2">
+
+        <div class="product">
+            <div class="border">
+                <img src="https://p.w3layouts.com/demos/july-2016/07-07-2016/grocery_store/web/images/21.png">
+                <br>Princeware Packaging Container Pack (6 No's)
+                <br><span class="bold">$8.00</span> <span class="cline">$10.00</span>
+                <div class="center"><input type="button" value="ADD TO CART"></div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="border">
+                <img src="https://p.w3layouts.com/demos/july-2016/07-07-2016/grocery_store/web/images/22.png">
+                <br>Signoraware Container Center Press (900 Ml)
+                <br><span class="bold">$5.00</span> <span class="cline">$8.00</span>
+                <div class="center"><input type="button" value="ADD TO CART"></div>
+            </div>
+        </div>
+        <div class="product">
+            <div class="border">
+                <img src="https://p.w3layouts.com/demos/july-2016/07-07-2016/grocery_store/web/images/23.png">
+                <br>Ship Stainless Steel Sauce Pan Single (1 Pc)
+                <br><span class="bold">$6.00</span> <span class="cline">$8.00</span>
+                <div class="center"><input type="button" value="ADD TO CART"></div>
+            </div>
+        </div>
+
+        <!-- <div class="product">
+            <div class="border">
+                <img src="https://p.w3layouts.com/demos/july-2016/07-07-2016/grocery_store/web/images/17.png">
+                <br>Dishwash Gel, Lemon (1.5 Ltr)
+                <br>$8.00 $10.00
+                <br><input type="button" value="ADD TO CART">
+            </div>
+        </div> -->
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3번</title>
+    <style>
+        /* 전체 틀 */
+        body {
+            background-color: rgb(50, 50, 50);
+            color: white;
+            font-family: sans-serif;
+        }
+
+        .wrap {
+            border: 1px solid red;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        .blueline {
+            text-decoration: line-through;
+            color: blue;
+            font-weight: bolder;
+            display: inline;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        /* top */
+        .top {
+            margin: 40px 0;
+        }
+
+        /* overview */
+        .overview {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .overview>div {
+            width: 40%;
+        }
+
+        .overview>div>p {
+            font-weight: bolder;
+            font-size: 20px;
+        }
+
+        /* 메인 */
+        .main {
+            margin: 50px 0;
+        }
+
+        /* table1 */
+        .line1 {
+            /* border: 1px solid red; */
+            height: 50px;
+            line-height: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-bottom: 1px solid gray;
+        }
+
+        .ln1{
+            box-sizing: border-box;
+            width: 80%;
+            padding-left: 40px;
+            display: inline-block;
+            font-weight: 900;
+            font-size: 20px;
+            
+        }
+        .ln2{
+            box-sizing: border-box;
+            width: 8%;
+            display: inline-block;
+        }
+        .ln3{
+            box-sizing: border-box;
+            width: 8%;
+            display: inline-block;
+        }
+        /* 2줄 */
+        .line2{
+            height: 50px;
+            line-height: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .ln21{
+            box-sizing: border-box;
+            width: 75%;
+            padding-left: 40px;
+            display: inline-block;
+            
+        }
+        .ln22{
+            box-sizing: border-box;
+            width: 13%;
+            display: inline-block;
+            border-left: 1px solid gray;
+            text-align: center;
+        }
+        .ln23{
+            box-sizing: border-box;
+            width: 10%;
+            display: inline-block;
+            border-left: 1px solid gray;
+            text-align: center;
+        }
+        /* 3줄 */
+        .line3{
+            height: 600px;
+            background-image: url("https://pds.joongang.co.kr//news/component/htmlphoto_mmdata/201805/08/f514f1ef-93f8-45a2-806d-6bad5ac25c98.jpg");
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        .ln3txt{
+            display: inline-block;
+            font-size: 60px;
+            font-weight: bolder;
+            position: relative;
+            top: 40%;
+            left: 25%;
+            text-align: center;
+        }
+        /* table2 */
+        .tb2{
+            border: 1px solid gray;
+            width: 90%;
+            margin: 40px auto;
+        }
+        .tb2ln1{
+            display: flex;
+            text-align: center;
+        }
+        .tb2ln1>div{
+            border: 1px solid gray;
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+        }
+        .tb2i{
+            width: 100%;
+            height: 600px;
+            background-image: url("https://dimg.donga.com/ugc/CDB/WEEKLY/Article/5e/e0/9f/73/5ee09f7316a2d2738de6.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            border: 1px solid gray;
+            position: relative;
+        }
+        </style>
+</head>
+
+<body>
+    <!-- 전체 -->
+    <div class="wrap">
+        <!-- project overview -->
+        <div class="top">
+            <pre class="blueline">      </pre><span style="text-decoration: none; color: white;"> PROJECT
+                OVERVIEW</span>
+        </div>
+
+        <div class="overview">
+            <div>
+                <p>BACKGROUND</p>
+                Sphere is a space travel company offeringtrips to Earth Orbit, Space station, Moon and Mars. Sphere is
+                looking to sell tickets to space by fostering public interest and increasing transparenct in space
+                tourism.
+            </div>
+            <div>
+                <p>OBJECTIVES</p>
+                Design a responsive space tourism website that not only inform the user of the mission and astronaut
+                process, but also is visually capivation and futuristic.
+            </div>
+        </div>
+        <!-- main page -->
+        <div class="main">
+            <pre class="blueline">      </pre><span style="text-decoration: none; color: white;"> MAIN PAGE</span>
+        </div>
+
+        <!-- table1 -->
+        <div>
+            <!-- 1줄 -->
+            <div class="line1">
+                <div class="ln1">SPHERE</div>
+                <div class="ln2">ABOUT</div>
+                <div class="ln3">CONTACT</div>
+            </div>
+            <!-- 2줄 -->
+            <div class="line2">
+                <div class="ln21">
+                    <span style="margin-right: 50px;">BOOK</span>
+                    <span style="margin-right: 50px;">FLIGHTS</span>
+                    <span style="margin-right: 50px;">SHIPS</span>
+                    <span style="margin-right: 50px;">TRANING</span>
+                    NEWS
+                </div>
+                <div class="ln22">SEARCH</div>
+                <div class="ln23">EN</div>
+            </div>
+            <!-- 3줄 END -->
+            <div class="line3">
+                <div class="ln3txt">TO SPACE<br>AND BACK,SAFELY.</div>
+            </div>
+        </div>
+
+        <!-- table2 -->
+        <div class="tb2">
+            <div class="tb2ln1">
+                <div>EARTH</div>
+                <div>SPACE STATION</div>
+                <div>MOON</div>
+                <div>MARS</div>
+                <div>ALL FIGHTS</div>
+            </div>
+            <div class="tb2i">
+
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+</html>
