@@ -1,0 +1,18 @@
+--통합 개발  환경 'IDE'--
+Visual studio code > vscode
+이클립스 eclipse
+인텔리제이 IntelliJ
+visual studio
+-----------
+스프링
+스프링부트
+전자정부 프레임워크
+-----------
+Spring Tool Suite 3(sts3)
+1. https://www.behance.net/gallery/133546225/Sphere-Space-Travel-Company?tracking_source=search_projects_recommended%7Ccompany
+2. full distribution on Eclipse 4.21 //설치
+
+Java
+1. https://jdk.java.net/java-se-ri/11
+2. RI Binary (build 11+28) under the GNU General Public License version 2 //window버전으로 설치
+
