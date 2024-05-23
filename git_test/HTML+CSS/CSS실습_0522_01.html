@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1번</title>
+    <style>
+        .background {
+            width: 100%;
+            height: 800px;
+
+            background-image: url(https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/9b22e6f1444b5ae785f3a267/pexelsphoto3326103.jpeg);
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;
+            display: block;
+        }
+
+        .top {
+            padding: 20px 0;
+        }
+
+        .floatL {
+            /* border: 1px solid red; */
+            float: left;
+        }
+
+        .floatR {
+            float: right;
+            /* border: 1px solid red; */
+        }
+
+        input[type="text"] {
+            background-color: rgba(0, 0, 0, 0);
+            height: 30px;
+            border-color: white;
+            margin-left: 5px;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .food {
+            height: 60px;
+            padding: 5px 10px;
+
+            position: absolute;
+            top: 70%;
+
+            background-color: white;
+            font-size: 40px;
+            font-weight: bolder;
+
+        }
+
+        .good {
+            height: 60px;
+            padding: 5px 10px;
+
+            position: absolute;
+            top: 77%;
+
+            background-color: #f1c50e;
+            font-size: 40px;
+            font-weight: bolder;
+        }
+
+        /* 2번째 파트 */
+        .part2 {
+            display: block;
+            position: relative;
+            height: 800px;
+            /* border: 1px solid red; */
+        }
+
+        .text1 {
+            width: 340px;
+            height: 300px;
+            border: 8px solid black;
+            position: absolute;
+            padding: 20px;
+            z-index: 1;
+            background-color: white;
+            top: 30%;
+            left: 10%;
+        }
+        .text1 > p{
+            font-size: 2.5em;
+        }
+
+        .yellow {
+            width: 550px;
+            height: 630px;
+            background-color: #f1c50e;
+            position: absolute;
+            top: 10%;
+            left: 25%;
+        }
+        .i2{
+            width: 400px;
+            height: 550px;
+            position: absolute;
+            top: 15%;
+            left: 50%;
+        }
+        /* 3번째 파트 */
+        .part3{
+            height: 300px;
+            display: flex;
+            justify-content: space-evenly;
+            /* border: 1px solid red; */
+        }
+
+        .part3 > div> img{
+            width: 300px;
+            height: 291px;
+        }
+
+        .text2 {
+            width: 250px;
+            height: 250px;
+            border: 6px solid black;
+            padding: 15px;
+            background-color: white;
+            font-size: 18px;
+        }
+        .text2 > p{
+            font-size: 1.5em;
+        }
+        /* 4번째 파트 */
+        .part4{
+            height: 800px;
+            background-image: url("https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/992eb4a786e9521ea39ea995/pexelsphoto940302.jpeg");
+            background-size: cover;
+        }
+        .p4content{
+            width: 55%;
+            font-size: 18px;
+            position: relative;
+            top: 30%;
+        }
+        .p4content > p{
+            font-size: 2em;
+            font-weight: bolder;
+        }
+        /* 파트5 */
+        .part5{
+            height: 600px;
+            position: relative;
+            /* border: 1px solid red; */
+        }
+        .p5i1 >img{
+            width: 560px;
+            height: 500px;
+
+            position: absolute;
+            top: 10%;
+            left: 5%;
+        }
+        .p5i2 >img{
+            width: 560px;
+            height: 500px;
+            position: absolute;
+            top: 10%;
+            right: 5%;
+        }
+        .p5bar{
+            /* border: 1px solid red; */
+            width: 100%;
+            height: 200px;
+            background-color: #f1c50e;
+            position: absolute;
+            top: 35%;
+            z-index: -1;
+        }
+        /* 파트6 */
+        .part6{
+            text-align: center;
+            font-size: 18px;
+        }
+        .part6 > p{
+            font-size: 2em;
+            font-weight: bolder;
+        }
+        .part6 > input[type="button"]{
+            width: 200px;
+            height: 50px;
+            margin: 20px;
+
+            background-color: black;
+            color: #fff;
+
+        }
+        /* 파트7 */
+        .part7{
+            /* border: 1px solid red; */
+            margin: 80px 0;
+            display: flex;
+            justify-content: space-between;
+        }
+        .part7 > div {
+            width: 30%;
+            box-sizing: border-box;
+            
+        }
+        .part7 > div > img{
+            width: 400px;
+            height: 400px;
+        }
+        .p7text{
+            border: 5px solid black;
+            text-align: center;
+            padding: 20px 20px 20px 0;
+        }
+        .p1{
+            font-size: 40px;
+            margin: 0;
+        }
+        .p2{
+            font-size: 20px;
+            margin: 0;
+        }
+        .p3{
+            font-size: 90px;
+            margin: 0; padding: 20px 0 0 0;
+            line-height: 50%;
+            
+        }
+        .p4{
+            padding: 30px;
+            font-size: 20px;
+            margin: 0;
+        }
+        /* 파트8 */
+        .part8{
+            height: 800px;
+            background-image: url("https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/3cb19967a4645debbcf2c90a/pexelsphoto3831823.jpeg");
+            background-size: cover;
+            position: relative;
+
+        }
+        .p8move{
+            font-size: 40px;
+            text-align: center;
+            position: absolute;
+            left: 37%;
+            bottom: 8%;
+        }
+        </style>
+</head>
+
+<body>
+    <!-- https://www.behance.net/gallery/133546225/Sphere-Space-Travel-Company?tracking_source=search_projects_recommended%7Ccompany -->
+    <!-- 배경그림 -->
+    <div class="background clearfix">
+
+        <div class="top  clearfix">
+            <div class="floatL">
+                <input type="text" placeholder=" Search">
+            </div>
+            <div class="floatR" style="font-size: 150%; font-weight: bolder; padding: 0; margin-right: 20px; ">
+                三
+            </div>
+        </div>
+
+        <hr>
+        <div class="food">YOUR FAVORITE FOOD</div>
+        <div class="good">MAKE IT GOOD</div>
+
+    </div>
+    <!-- 2번째 파트 -->
+    <div class="part2 clearfix">
+        <div class="text1">
+            <p>Cafe Food Menu</p>
+            All of our food is prepared by our team of trained kitchen staff from the sealed glass kitchen where you can
+            see your food being made, without risk of little paws getting involved.
+        </div>
+        <div class="yellow"></div>
+        <div>
+            <img class="i2" src="https://images03.nicepage.com/c461c07a441a5d220e8feb1a/e07fd7349a87546e950fb324/photo1564305564045c62d40dd0123.jpg">
+        </div>
+    </div>
+    <!-- 3번째 파트 flex-->
+    <div class="part3">
+        <div>
+            <img src="https://images01.nicepage.com/a2/fc/a2fc4ef890f44fa0a9bb7787ce17008d.jpeg">
+        </div>
+        <div class="text2">
+            <p>Have a healthy afternoon snack</p>
+            The majority of people in the working world are likely familiar with the mid-afternoon slump.
+        </div>
+        <div>
+            <img src="https://images01.nicepage.com/62/43/6243854162c536333ab218a58996077f.jpeg">
+        </div>
+        <div class="text2">
+            <p>Include lots of fibre in your diet</p>
+            Fibre is known to help aid with digestion. However, that’s not its only benefit.
+        </div>
+    </div>
+    <!-- 4번째 파트 -->
+    <div class="part4">
+        <div class="p4content">
+            <p>Time to Make a Difference</p>
+            Phasellus scelerisque arcu vestibulum tempor tempor. Donec vulputate leo et metus hendrerit bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. In scelerisque nisl nec ornare euismod.
+        </div>
+    </div>
+    <!-- 파트5 -->
+    <div class="part5">
+        <div class="p5i1">
+            <img src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/b997f5453a025796b7e011f6/pexelsphoto3659862.jpeg">
+        </div>
+        
+        <div class="p5i2">
+            <img src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/89f0b40da8d05b4088f24d63/pexelsphoto704569.jpeg">
+        </div>
+        <div class="p5bar"> </div>
+    </div>
+    <!-- 파트6 -->
+    <div class="part6">
+        <p>Which is the tastiest food?</p>
+        The world's most delicious food is not Massaman curry, as we suggested, but a meaty, spicy,
+        <br>gingery dish from west Sumatra. "There is no love sincerer than the love of food," George Bernard
+        <br>Shaw said. Judging by the number of amazing dishes out there, he was right.
+        <br><input type="button" value="READ MORE">
+    </div>
+    <!-- 파트7 -->
+    <div class="part7">
+        <div>
+            <img src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/e5a2d57a68bc5de4b52746a3/pexelsphoto3756523.jpeg">
+        </div>
+        <div class="p7text">
+            <p class="p1">Restaurant</p>
+            <p class="p2">ORGANIC FARM</p>
+            <p class="p3">"</p>
+            We bring the season’s best mix of organic produce and hand-crafted farm products conveniently to your door by growing and partnering with local farms and artisans in your area.
+            <p class="p4">– LOO HUDSON</p>
+        </div>
+        <div>
+            <img src="https://images03.nicepage.com/a1389d7bc73adea1e1c1fb7e/fcee991985085d4093370a3d/pexelsphoto3756525.jpeg">
+        </div>
+    </div>
+    <!-- 파트8 -->
+    <div class="part8">
+        <div class = p8move>
+            Enjoy Morning Time
+        </div>
+
+    </div>
+</body>
+
+</html>

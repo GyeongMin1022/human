@@ -1,3 +1,12 @@
+--think--
+github star ranking
+gpt javascript 크롤링
+노션 정리
+
+--알아두면 좋은--
+인터프리터 : 한줄씩 번역
+컴파일러 : 통채로 번역
+
 --통합 개발  환경 'IDE'--
 Visual studio code > vscode
 이클립스 eclipse
@@ -16,3 +25,23 @@ Java
 1. https://jdk.java.net/java-se-ri/11
 2. RI Binary (build 11+28) under the GNU General Public License version 2 //window버전으로 설치
 
+1. C:\Users\admin\Downloads\sts-bundle\sts-3.9.18.RELEASE/sts.ini 열기
+2. jdk bin 폴더경로 -vmars 위에 입력
+-vm
+경로
+3.Workspace 경로 설정
+
+1. 상단메뉴 Window Preference
+2. encoding 검색
+3. contents type - text
+4. defaulf encoding UTF-8
+5. Update
+6. Workspace other > Utf-8 >  apply
+7. css files > UTF-8 > apply
+8. html jsp xml동일
+9. apply close
+
+--------------------------
+자바 출력
+System.out.println
+syso 입력 후 ctrl + space
