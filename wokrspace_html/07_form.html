@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--
+        action : 보낼곳
+        method : 보내는 방식 get, post 안쓰면 get
+    -->
+    <form action="" method="get">
+        button : <input type="button" value="버튼"><br>
+        checkbox : <input type="checkbox" value="1" checked="checked"> 김밥
+        <input type="checkbox" checked="checked"> 라면 <br>
+        <!--중요하지 않음-->
+        <input type="color"> <input type="date"> <br>
+        file : <input type="file"> <br>
+        <input type="hidden" value="60">
+        number : <input type="number"> <br>
+        password : <input type="password" name="pw"> <br>
+        <!--checked가 여러개 되어있는경우 마지막에 있는것으로 선택
+        get방식을 사용하면 주소창에 value가 없으면 ON 으로 나옴-->
+        radio :
+        <input type="radio" name="gender" value="male"> 남자
+        <input type="radio" name="gender" value="female"> 여자
+        <input type="radio" name="gender" checked="checked"> 비공개 <br>
+        <!--type을 적지 않아도 기본값은 text-->
+        text : <input type="text"> <br>
+        <!--폼 내에서만 reset-->
+        <!--버튼 타입은 name을 줘도 전송되지 않음-->
+        reset : <input type="reset"> <input type="reset" value="다시작성"> <br>
+        submit : <input type="submit"> <input type="submit" value="회원가입">
+    </form>
+
+    <hr>
+
+    <form action="https://search.naver.com/search.naver" method="get" target="_blank">
+        <input type="text" name="query" placeholder="검색어를 입력해주세요">
+        <input type="submit" value="네이버 검색">
+    </form>
+    <form action="https://www.google.com/search" method="get">
+        <!--readonly 읽기 전용-->
+        <input type="text" name="q" value="휴먼교육센터" readonly='readonly'>
+        <input type="submit" value="구글 검색">
+    </form>
+    <!-- form안에 form이 있으면 동작이 이상해진다. -->
+    <!-- selected가 여러개인 경우 마지막을 선택-->
+    <form>
+        <!--disalbed 전달안됨 사용안됨 text에도 사용가능-->
+        <select name="dinner" disabled>
+            <option value="1">일식</option>
+            <option value="2">한식</option>
+            <option value="3">양식</option>
+            <option value="4" selected="selected">분식</option>
+        </select>
+        <input type="submit">
+    </form>
+    <form>
+        <textarea name="textarea" rows="10" cols="30">미리
+        
+            완성</textarea>
+        <input type="submit">
+    </form>
+
+</body>
+
+</html>

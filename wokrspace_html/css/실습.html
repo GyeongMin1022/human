@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .position {
+            position: relative;
+            /* border: 1px solid red; */
+            height: 1000px;
+        }
+
+        .wrap {
+            border: 1px solid lightgrey;
+            width: 80%;
+
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .floatR {
+            float: right;
+            /* border: 1px solid red; */
+            margin-right: 10px;
+        }
+
+        .floatL {
+            float: left;
+            /* border: 1px solid red; */
+        }
+
+        .clearfix::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .title {
+            vertical-align: middle;
+            height: 50px;
+        }
+
+        .right {
+            text-align: right;
+            margin-bottom: 20px;
+            margin-right: 8px;
+        }
+
+        .top {
+            height: 50px;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            height: 230px;
+            border-collapse: collapse;
+        }
+
+        .left {
+            text-align: left;
+        }
+
+        .flexa {
+            display: flex;
+            justify-content: center;
+            /* border: 1px solid red; */
+            width: 100%;
+            background-color: lightgrey;
+        }
+
+        .a {
+            /* border: 1px solid lightgray; */
+            margin-right: 7px;
+            padding: 5px;
+
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        a:link {
+            color: gray;
+        }
+
+        .marginB {
+            padding: 20px 0;
+        }
+
+        .last {
+            height: 50px;
+            align-items: center;
+        }
+
+        th {
+            border-bottom: 1px solid grey;
+            border-top: 1px solid grey;
+        }
+
+        td {
+            border-bottom: 1px solid lightgrey;
+        }
+
+        input[type="button"] {
+            height: 30px;
+        }
+
+        .top {
+            overflow: hidden;
+            margin: 10px 10px 0 0;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        select {
+            height: 30px;
+        }
+
+        input[type="text"] {
+            height: 26px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="position">
+        <div class="wrap">
+            <!-- 최상단 검색 -->
+            <div class="clearfix top">
+                <div class="floatR">
+                    <input type="text"> <input type="button" value="검색">
+                </div>
+            </div>
+
+            <!-- 제목 게시판분석 -->
+            <div class="clearfix title">
+                <div class="floatL">
+                    <h1>09. 생산관리 프로그래밍기초(과제제출)</h1>
+                </div>
+                <div class="floatR"><input type="button" value="게시판분석"></div>
+            </div>
+            <br>
+            <!-- 새글구독 공지사항숨기기 -->
+            <div class="right">
+                새글 구독<input type="checkbox"> <input type="checkbox">공지숨기기
+                <select>
+                    <option>5개씩</option>
+                    <option>10개씩</option>
+                    <option>15개씩</option>
+                    <option>20개씩</option>
+                    <option>25개씩</option>
+                </select>
+            </div>
+
+            <!-- 본문 테이블 -->
+            <div>
+                <table class="center">
+                    <tr>
+                        <!-- <td></td> -->
+                        <!-- <td></td> -->
+                        <th colspan="3">제목</th>
+                        <th>작성자</th>
+                        <th>작성일</th>
+                        <th>조회</th>
+                        <th>좋아요</th>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>392</td>
+                        <td class="left">09. 생산관리 프로그래밍기초C#(과제제출)-유상준</td>
+                        <td>유상준</td>
+                        <td>2024.04.16</td>
+                        <td>1</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>391</td>
+                        <td class="left">생산관리 프로그래밍기초C#(과제제출) - 임우혁</td>
+                        <td>임우혁</td>
+                        <td>2024.04.16</td>
+                        <td>1</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>388</td>
+                        <td class="left">생산관리 프로그래밍기초C#(과제제출) - 송우석</td>
+                        <td>송우석</td>
+                        <td>2024.04.16</td>
+                        <td>1</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>386</td>
+                        <td class="left">생산관리 프로그래밍기초C#(과제제출) - 이민영</td>
+                        <td>이민영</td>
+                        <td>2024.04.15</td>
+                        <td>2</td>
+                        <td>0</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox"></td>
+                        <td>377</td>
+                        <td class="left">생산관리 프로그래밍기초C#(과제제출) - 허재영</td>
+                        <td>허재영</td>
+                        <td>2024.04.09</td>
+                        <td>2</td>
+                        <td>0</td>
+                    </tr>
+                </table>
+            </div>
+            <!-- 전체선택 이동 삭제 글쓰기 -->
+            <div class="clearfix marginB">
+                <div class="floatL" style="padding-left: 12px;"><input type="checkbox">전체선택</div>
+                <div class="floatR">
+                    <input type="button" value="이동">
+                    <input type="button" value="삭제">
+                    <input type="button" value="글쓰기">
+                </div>
+            </div>
+            <!-- 1 2 3 4 a태그 -->
+            <div class="flexa">
+                <br>
+                <a href="#" class="a">1 </a>
+                <a href="#" class="a">2 </a>
+                <a href="#" class="a">3 </a>
+                <a href="#" class="a">4 </a>
+            </div>
+
+            <div class="flexa last">
+                <div>
+                    <select>
+                        <option>전체기간</option>
+                        <option>1일</option>
+                        <option>1주</option>
+                        <option>1개월</option>
+                        <option>6개월</option>
+                        <option>1년</option>
+                        <option> 기간입력</option>
+                    </select>
+                    <select>
+                        <option>게시글 + 댓글</option>
+                        <option>제목만</option>
+                        <option>글작성자</option>
+                        <option>댓글내용</option>
+                        <option>댓글작성자</option>
+                    </select>
+                    <input type="text" placeholder="검색어를 입력해주세요">
+                    <input type="button" value="검색">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
