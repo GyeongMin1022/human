@@ -3,7 +3,15 @@ package sec02.exam01;
 public class VarExam {
 
 	public static void main(String[] args) {
-
+		/*
+		 * 변수명 규칙
+		 * 1. 숫자로 시작하면 안됨
+		 * 2. 예약어 사용 금지 (int, double 등) 
+		 * 3. 특수문자 _ $ 만 사용가능 (int_a; $a)
+		 * 4. 소문자로 시작하는게 좋다.
+		 * 
+		 * 
+		*/
 		// 변수 선언 : 자료의 종류와(타입) 한칸띄고 이름
 		int score; // 선언부
 		score = 90; // 할당
