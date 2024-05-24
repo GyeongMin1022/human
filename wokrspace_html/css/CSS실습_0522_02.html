@@ -264,7 +264,8 @@
         .cline {
             text-decoration: line-through;
         }
-        .border input[type="button"]{
+
+        .border input[type="button"] {
             width: 150px;
             height: 30px;
             text-align: center;
@@ -273,8 +274,63 @@
             color: white;
             margin-bottom: 10px;
         }
-        .center{
+
+        .center {
             text-align: center;
+        }
+
+        /* sub */
+        .sub {
+            background-color: red;
+            width: 100%;
+            height: 150px;
+            line-height: 150px;
+            text-align: center;
+            color: white;
+            font-size: 1.5em;
+            margin-top: 50px;
+        }
+
+        .sub>div>input[type="text"] {
+            height: 30px;
+            width: 250px;
+            background-color: red;
+            border: 1px solid white;
+        }
+
+        .sub>div>input[type="button"] {
+            /* display: inline-block;
+            margin-left: 0px; */
+            background-color: white;
+            color: red;
+            height: 37px;
+            border: 1px solid red;
+        }
+
+        /* footer */
+        .footer {
+            display: flex;
+            background-color: #212121;
+            color: white;
+            font-size: 20px;
+            justify-content: space-between;
+        }
+
+        .footer>div {
+            margin: 50px;
+            width: 200px;
+        }
+
+        .footer>div>ul {
+            margin: 20px 0 0 0;
+            padding: 0;
+            list-style-type: none;
+            color: #858585;
+            font-size: 16px;
+        }
+
+        .footer>div>ul>li {
+            padding: 20px 0;
         }
 
     </style>
@@ -446,6 +502,65 @@
             </div>
         </div> -->
     </div>
+    <!-- SUBSCRIBE -->
+    <div class="sub">
+        <div>
+            Sign Up For Our Newsletter
+            <input type="text" placeholder="Email">
+            <input type="button" value="SUBSCRIBE NOW" style="margin-left: 0;">
+        </div>
+    </div>
+
+    <!-- footer -->
+    <div class="footer">
+        <div>
+            INFORMATION
+            <ul>
+                <li> > EVENTS</li>
+                <li> > About Us</li>
+                <li> > Best Deals</li>
+                <li> > Services</li>
+                <li> > Short Codes</li>
+            </ul>
+        </div>
+        <div>
+            POLICY INFO
+            <ul>
+                <li> > FAQ</li>
+                <li> > Privacy Policy</li>
+                <li> > Term Of Use</li>
+            </ul>
+        </div>
+        <div>
+            WHAT IN STORES
+            <ul>
+                <li> > Pet Food</li>
+                <li> > Frozen Snack</li>
+                <li> > Kitchen</li>
+                <li> > Branded Foods</li>
+                <li> > Househlods</li>
+            </ul>
+        </div>
+        <div>
+            TWITTER POSTS
+            <ul>
+                <li>
+                    <span>🐤 01 day ago</span>
+                    <br> Non numquam http://sd.ds/13jklf# eius modi tempora incidunt ut labore et
+                    http://sd.ds/1389kjklf#quo nulla.
+                </li>
+                <li>
+                    <span>🐤 02 day ago</span>
+                    <br> Con numquam http://fd.uf/56hfg# eius modi tempora incidunt ut labore et http://fd.uf/56hfg#quo
+                    nulla.
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+    </div>
+
 </body>
 
 </html>
