@@ -1,8 +1,3 @@
---think--
-github star ranking
-gpt javascript 크롤링
-노션 정리
-
 --알아두면 좋은--
 인터프리터 : 한줄씩 번역
 컴파일러 : 통채로 번역
