@@ -4,23 +4,19 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int a = scan.nextInt();
-		int b = scan.nextInt();
-		if (b < 45) {
-			a -= 1;
-			b += 60;
+		Scanner in = new Scanner(System.in);
+		 
+		 
+		int a = in.nextInt();	// 불변 비용
+		int b = in.nextInt();	// 가변 비용
+		int c = in.nextInt(); 	// 상품 가격
+        
+		if (c <= b) {
+			System.out.println("-1");
+		} 
+		else {
+			System.out.println((a/(c-b))+1);
 		}
-		b-=45;
-		if(a == -1) {
-			a =23;
-		}
-		
-		
-		System.out.println(a + " " + b);
-		
-		
 
 	}
-
 }
