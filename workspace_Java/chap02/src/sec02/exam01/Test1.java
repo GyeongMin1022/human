@@ -3,28 +3,50 @@ package sec02.exam01;
 public class Test1 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		// 1번내가 운전하는 자동차가 있다/없다
-		boolean car = true;
-		// 2번 우리집에 있는 스마트폰의 갯수
-		int phone = 6;
-		// 3번 내이름
-		String name = "박경민";
-		// 4번 1평=3.3 5평은?
-		double t4 = 3.3;
-
-		// 1번
-		if (car == true) {
-			System.out.println("있다");
-		} else {
-			System.out.println("없다");
-		}
-		// 2번
-		System.out.println(phone);
-		// 3번
-		System.out.println(name);
-		// 4번
-		System.out.println(t4 * 5);
+		int money1 = 7234; // 7234원이 있습니다
+		
+//		System.out.println("===============hr=================");
+//		System.out.println("5000원은 최대 " + (money1/5000) + "장");
+//		System.out.println("1000원은 최대 " + (money1/1000) + "장");
+//		System.out.println("500원은 최대 " + (money1/500) + "개");
+//		System.out.println("100원은 최대 " + (money1/100) + "개");
+//		System.out.println("50원은 최대 " + (money1/50) + "개");
+//		System.out.println("10원은 최대 " + (money1/10) + "개");
+//		System.out.println("1원은 최대 " + (money1/1) + "개");
+		
+		
+		System.out.println("===============hr=================");
+		System.out.println("현재금액 " + money1 + "원");
+		System.out.println("5000원은 최대 " + (money1/5000) + "장");
+		money1 -= money1/5000 *5000;
+		System.out.println("1000원은 최대 " + (money1/1000) + "장");
+		money1 -= money1/1000 *1000;
+		System.out.println("500원은 최대 " + (money1/500) + "개");
+		money1 -= money1/500 * 500;
+		System.out.println("100원은 최대 " + (money1/100) + "개");
+		money1 -= money1/100 * 100;
+		System.out.println("50원은 최대 " + (money1/50) + "개");
+		money1 -= money1/50 * 50;
+		System.out.println("10원은 최대 " + (money1/10) + "개");
+		money1 -= money1/10 * 10;
+		System.out.println("1원은 최대 " + (money1/1) + "개");
+		
+		money1 = 28234;
+		System.out.println("===============hr=================");
+		System.out.println("현재금액 " + money1 + "원");
+		System.out.println("5000원은 최대 " + (money1/5000) + "장");
+		money1 = money1%5000;
+		System.out.println("1000원은 최대 " + (money1/1000) + "장");
+		money1 = money1%1000;
+		System.out.println("500원은 최대 " + (money1/500) + "개");
+		money1 = money1%500;
+		System.out.println("100원은 최대 " + (money1/100) + "개");
+		money1 = money1%100;
+		System.out.println("50원은 최대 " + (money1/50) + "개");
+		money1 = money1%50;
+		System.out.println("10원은 최대 " + (money1/10) + "개");
+		money1 = money1%10;
+		System.out.println("1원은 최대 " + (money1/1) + "개");
 
 	}
 

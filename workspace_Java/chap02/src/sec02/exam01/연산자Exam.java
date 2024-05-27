@@ -122,7 +122,33 @@ public class 연산자Exam {
 		money1 = money1%10;
 		System.out.println("1원은 최대 " + (money1/1) + "개");
 		
+		System.out.println(3 > 5);
+		boolean bool = 3 > 5;
+		System.out.println(bool);
+		System.out.println(0.1 == 0.1f); //결과 false
+		// 같은 타입으로 변경해서 비교하자
+		System.out.println((double)0.1f);
 		
+		System.out.println("3 == 3 : " + (3 == 3));
+		System.out.println("3 != 3 : " + (3 != 3));
+		
+		String str1 = "박경민";
+		String str2 = "박경민";
+//		System.out.println(str1 == str2);
+		// 글씨 비교는 == 사용 금지
+		// String 변수나 ""에 .equals( )붙여서 사용 ()안에 글씨와 비교
+		System.out.println(		str1.equals(str2)	);
+		System.out.println(10 & 3);
+		System.out.println(10 | 3);
+		
+		int i1 = 7;
+		int i2 = 15;
+		int i3 = 7;
+		
+		System.out.println("i3이 가장 큰 값인가? "
+		+ (i3 >=i1 && i3>=i2));
+		boolean i3가크다 = i3> i2;
+		System.out.println(i3가크다? "i3크다" : "i3작거나같다");
 		
 		
 	}
