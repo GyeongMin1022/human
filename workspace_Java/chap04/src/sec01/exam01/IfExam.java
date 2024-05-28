@@ -206,7 +206,7 @@ public class IfExam {
 		// char bye short int(즉, int이하), String만 허용됨
 		// boolean, Long, float, double 못씀
 		
-		
+//		if(month == 1) System.out.println("한줄만 if에 적용");
 		
 	}
 
