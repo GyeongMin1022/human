@@ -28,20 +28,20 @@ public class BankExam {
 				System.out.print("예금하실금액> ");
 				int in = scan.nextInt();
 				if (in <= 0) {
-					System.out.println("너무 작은값을 입력하셨습니다");
+					System.out.println("Error : 너무 작은값을 입력하셨습니다");
 					continue;
 				}
 				balance += in;
 			} else if (select == 2) {
-				System.out.print("출금하실금액> ");
+				System.out.print("출금액> ");
 				int out = scan.nextInt();
 				if (out > balance) {
-					System.out.println("잔액보다 큰 금액을 인출하셨습니다\n확인해주세요");
+					System.out.println("Error : 잔액보다 큰 금액을 인출하셨습니다\n확인해주세요");
 					continue;
 				}
 				balance -= out;
 			} else if (select == 3) {
-				System.out.println("현재 잔액 : " + balance + "원");
+				System.out.println("잔고> " + balance);
 			} else if (select == 4) {
 				break;
 			} else {
