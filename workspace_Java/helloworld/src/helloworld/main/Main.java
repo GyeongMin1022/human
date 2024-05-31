@@ -5,17 +5,34 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		String a = scan.next();
-//		String b = scan.next();
+		int[] num = new int[3];
+//		int[] num2 = new int[3];
+
+		for (int i = 0; i < 3; i++) {
+			int a = scan.nextInt();
+			num[i] = a;
+		}
+
+		int max = 0, min = num[0], m1=0;
+
+		for (int i = 0; i < 3; i++) {
+			if (max < num[i]) {
+				max = num[i];
+				num[i] = 0;
+			}
+			if (min > num[i]) {
+				min = num[i];
+				num[i] = 0;
+			}
+		}
+
+		for (int i = 0; i < 3; i++) {
+			if (num[i] != 0) {
+				m1 = num[i];
+			}
+		}
 		
-		int c, d;
-		
-		c = a.charAt(2)*100 +  a.charAt(1)*10 + a.charAt(0);
-		System.out.println((int)a.charAt(2)*100);
-		System.out.println(a.charAt(1)*10);
-		System.out.println(a.charAt(0));
-		
-		System.out.println(c);
-	
+		System.out.println(m1);
+
 	}
 }

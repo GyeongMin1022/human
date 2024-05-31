@@ -115,6 +115,14 @@ public class ArrayExam {
 
 		int[][] 수원 = new int[4][22];
 		int[][] 서울 = new int[4][22];
+		
+		
+		int[][] test = new int[3][2];
+		int[][] test2 = {
+				{5,6},
+				{12,15},
+				{93, 87}
+		};
 
 		int[][][] 휴먼 = new int[3][4][22];
 		System.out.println(3 * 4 * 22);
@@ -146,6 +154,33 @@ public class ArrayExam {
 
 		// 배열의 length
 		System.out.println(list.size());
+		
+		System.out.println("--- study ---");
+		String[] study = { "박규태", "이제섭", "김아영", "박경민", "정근승", "현준수", "남현우", "김승환", "조민정", "이정은" };
+
+		System.out.println("총 " + study.length + "명");
+
+		// 배열에서 random으로 뽑기
+//		double rand = Math.random() * study.length;// 0 ~ 9.9999
+//		int index = (int) rand; // 0~9
+//		System.out.println("실험 study : " + study[index]);
+		
+
+		/* 
+		 * 랜덤으로 뽑는걸 100번 해서 가장 많이 나온 사람을 선택 
+		 * 
+		 */
+		int[] vote = new int[study.length];
+		for(int i=0;i<1000;i++) {
+			double rand = Math.random() * study.length;// 0 ~ 9.9999
+			int index = (int) rand; // 0~9
+			vote[index]++;
+		}
+		for(int i=0; i<vote.length;i++) {
+			System.out.println(study[i]+" "+vote[i]);
+		}
+		
+
 	}
 
 }
