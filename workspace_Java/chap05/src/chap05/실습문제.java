@@ -102,16 +102,17 @@ public class 실습문제 {
 		System.out.print("로또 번호 중복되지않게 출력 : ");
 		int[] lotto = new int[6];
 		for (int i = 0; i < lotto.length; i++) {
-			lotto[i] = (int) (Math.random() * 45) + 1;
-			for(int j=1; j<i;j++) {
-				if(lotto[i] == lotto[j]) {
-					lotto[i] = (int) (Math.random() * 45) + 1;
-				}
-			}
+		    lotto[i] = (int) (Math.random() * 45) + 1;
+		    for (int j = 0; j < i; j++) { 
+		        if (lotto[i] == lotto[j]) {
+		            lotto[i] = (int) (Math.random() * 45) + 1;
+		            j = -1;
+		        }
+		    }
 		}
 		for (int i = 0; i < lotto.length; i++) {
-			System.out.print(lotto[i] + " ");
-		}System.out.println();
+		    System.out.print(lotto[i] + " ");
+		}
 		
 		
 		// 10. 임시비밀번호 8자리 만들기
