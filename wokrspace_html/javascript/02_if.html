@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 1. 15와 20이 주어졌을때
+        // 세번째 값 17이 그 사이에 있는지 확인
+
+        let a = 15,
+            b = 20,
+            c = 17;
+        // c = prompt("값 입력");
+        if (c >= a && b >= c) {
+            console.log(`${c}는 ${a}와 ${b} 사이에 있습니다`);
+        } else {
+            console.log(`${c}는 ${a}와 ${b} 사이에 없습니다`);
+        }
+
+        // 좌상단 모서리 좌표
+        let x41 = 10;
+        let y41 = 20;
+
+        // 우하단 모서리 좌표
+        let x42 = 90;
+        let y42 = 100;
+
+        let x43 = 0;
+        let y43 = 0;
+
+        // 2. 온도를 입력 받아요
+        // 입력받은 온도가 온도에 따라서
+        // 1.영하입니다, 영상입니다 표시
+        // 2. -3을 입력한 경우 '영하 3도 입니다' 출력
+        // 3. 아까 입력받은걸 어제 기온으로 치고 (-3)
+        // 이번에 입력 받은 온도를 이용해서 (2)
+        // 어제보다 5도 높습니다
+
+        let a1 = prompt("어제의 온도를 입력 하세요");
+        let a11;
+        a1 = Number(a1);
+        a11 = Number(a11);
+        if (a1 > 0) {
+            console.log("영상입니다");
+            console.log(`영상${a11}도 입니다`);
+        } else {
+            a11 = a1 * (-1);
+            console.log("영하입니다");
+            console.log(`영하${a11}도 입니다`);
+        }
+
+        let a2 = prompt("오늘의 온도를 입력 하세요");
+        a2 = Number(a2);
+        if (a2 > a1) {
+            console.log(`어제보다 ${a2 - a1}도 높습니다`);
+        } else if (a2 === a1) {
+            console.log(`어제와 온도가 같습니다`);
+        } else {
+            console.log(`어제보다 ${a1 - a2}도 낮습니다`);
+        }
+
+
+        // 3. 두 수를 입력 받고(하드코딩하고)
+        // a와 b에 저장 해 놓고
+        // 둘중에 큰 값 출력
+        let b1 = prompt("첫번째 숫자를 입력하세요");
+        let b2 = prompt("두번째 숫자를 입력하세요");
+        b1 = parseInt(b1);
+        b2 = parseInt(b2);
+        if (b1 > b2) {
+            console.log(`둘중 큰 값은 ${b1} 입니다`);
+        } else if (b1 == b2) {
+            console.log("두 값이 같습니다");
+        }
+        else if (b2 > b1) {
+            console.log(`둘중 큰 값은 ${b2} 입니다`);
+        }
+
+        // 4.조금 어려운 문제
+        // 입력 받은 값이(하드코딩한 값이)
+        // 10의자리와 1의자리가 같은지 판단
+        // 22 : 같음
+        // 23 : 다름
+        let c1 = prompt("숫자를 입력하세요");
+        c1 = Number(c1);
+        if (parseInt(c1 / 10) == c1 % 10) {
+            console.log(`${c1} : 같음`)
+        } else {
+            console.log(`${c1} : 다름`)
+        }
+
+        // 5. 범위 안에 있는지 확인
+        if ((x43 >= x41 && y43 >= y41)
+            &&
+            (x43 <= x42 && y43 <= y42)) {
+            console.log("안에 있습니다");
+        } else {
+            console.log("밖에 있습니다");
+        }
+
+        // 6. 125라는 값이 주어졌을때
+        // 입력한 수는 100보다 큰 수, 양수, 홀수
+        // 98이 주어졌을때
+        // 입력한 수는 100보다 작은수, 양수, 짝수
+        let d1 = prompt("숫자를 입력하세요");
+        d1 = Number(d1);
+        let d2, // 100보다 큰수
+            d3, // 양수 음수
+            d4; // 홀수 짝수
+
+        // 100보다 큰수 판별
+        if (d1 >= 100) {
+            d2 = "100보다 큰수";
+        } else {
+            d2 = "100보다 작은수";
+        }
+
+        // 양수 음수 판별(1,0,-1)
+        if (d1 > 0){
+            d3 = "양수";
+        } else if(d1==0){
+            d3 = 0;
+        } else{
+            d3 = "음수";
+        }
+
+        // 홀짝 판별
+        if(d1%2 == 0){
+            d4 = "짝수";
+        } else{
+            d4 = "홀수";
+        }
+
+        console.log(`${d1}은 ${d2} ${d3} ${d4} 입니다.`);
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
