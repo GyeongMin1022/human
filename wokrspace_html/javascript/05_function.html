@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        // function 키워드로 시작
+        // 함수이름(예약어 제외)
+        // --형태--
+        // (전달받을 내용을 담는 변수들){
+        // 
+        //    }
+        // return 키워드를 통해서 값을 돌려 줄 수 있다.
+
+        // 함수를 쓰는 이유
+        // 1. 정해진 순으로 동작하는 코드의 묶음
+        // 2. 코드의 재사용을 편하게
+        function add(x, y) {  // ()선언을 의미
+            // 전달 받을 내용을 저장할 변수까지 선언
+            let z = x + y;
+            console.log(z);
+            return x + y;
+        }
+        let a = 3,
+            b = 7;
+
+        let arr3 = add(a, b); // ()실행을 의미, 전달할 의미를 넣음
+        console.log('arr3 : ', arr3);
+
+        let k = 3;
+        let l = 7;
+        add(k, l);
+
+
+        console.log(square(5));
+        // 전달인자가 하나인 함수
+        function square(n) {
+            return n * n;
+        }
+        // 전달인자가 없는 함수
+        function printinfo() {
+            console.log("이름 : 박경민");
+            console.log("나이 : 비밀");
+        }
+        printinfo();
+
+        // 호이스팅
+
+        // 함수 안에 함수
+
+        // x + y 를 더해서 제곱
+        function fnInfn(first, second) {
+            let result1 = add(first, second);
+            let result2 = square(result1);
+            return result2;
+
+        }
+
+        console.log("fnInfn(1,2) : ",fnInfn(1,2));
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
