@@ -2,30 +2,21 @@ package helloworld.main;
 
 import java.util.Scanner;
 
-class C {
-	private int a;
-
-	public void set(int a) {
-		this.a = a;
-	}
-
-	public void add(int d) {
-		a += d;
-	}
-
-	public void print() {
-		System.out.println(a);
-	}
-}
-
 public class Main {
 	public static void main(String[] args) {
-		C p = new C();
-		C q;
-		p.set(10);
-		q = p;
-		p.add(30);
-		p.print();
-
+		Scanner scan = new Scanner(System.in);
+		int n = scan.nextInt();
+		double a = 0, b = 0;
+		for (int i = 0; i <= n; i++) {
+			int n1 = scan.nextInt();
+			int sum = 0;
+			int[] arr = new int[n1];
+			for (int j = 0; j < n1; j++) {
+				int input = scan.nextInt();
+				arr[j] = input;
+				sum += arr[j];
+			}
+			System.out.println(sum);
+		}
 	}
 }

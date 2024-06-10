@@ -198,7 +198,7 @@
         let idx = setTimeout(function () {
             console.log("fn1 실행");
         }, 3 * 1000);
-        console.log("idx : ", idx)
+        console.log("idx : ", idx);
         clearTimeout(idx);
 
         // 지정된 ms(밀리초) 이후마다 반복해서 callback 함수 실행
@@ -212,7 +212,7 @@
         }, 2.5 * 1000)
 
 
-        let test = function (a, b) {
+        let test0 = function (a, b) {
             console.log(a, b);
             return a;
         }
@@ -236,7 +236,7 @@
         }
 
         // 전달인자가 없다면 하나가 아니니깐 ()생략 불가능
-        let test3_1 = () =>{
+        let test3_1 = () => {
 
         }
         let test4 = (a, b) => {
@@ -247,9 +247,45 @@
         // 함수의 실행 블럭 내용이 return문만 있는 경우
         // return 키워드와 {} 생략 할 수 있음
         // {}가 없는 경우 return 생략은 필수
-        let test5 = (a, b) =>  a + b;
-        
-        let test6 = a =>  a * 3;
+        let test5 = (a, b) => a + b;
+
+        let test6 = a => a * 3;
+
+        let before = new Date().getTime(); // 시계 보기
+        console.log('before : ' + before); // before : 1717981599509
+        let interval = 3 * 1000;
+
+        // let now = new Date().getTime(); // 10/1000초 뒤
+        // let diff = now - before; // before와 now사이 흐른 시간
+
+
+        // if (diff < interval) {
+        //     now = new Date().getTime();
+        //     diff = now - before;
+        //     if (diff < interval) {
+        //         now = new Date().getTime();
+        //         diff = now - before;
+        //     }
+        // }
+
+
+
+        let diff = -1;
+        // while이 끝날 때 까지 다음 줄이 실행되지 않는다(동기)
+        // setTimeout은 실행되고 다음 줄이 실행된다(비동기)
+        while (diff < interval) {
+            let now = new Date().getTime();
+            diff = now - before;
+            // console.log("diff" , diff);
+        }
+        doit();
+
+
+        function doit() {
+            console.log("이제 실행");
+        }
+
+
 
     </script>
 </head>
