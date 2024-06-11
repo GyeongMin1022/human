@@ -15,11 +15,8 @@ public class BubbleSort {
 					arr[j] = arr[j + 1];
 					arr[j + 1] = temp;
 				}
-				
 			}
 		}
-		
-		// 출력
 		System.out.print("버블정렬 결과 : "); // 1 2 3 4 5 6 7
 		for (int i = 0; i < n; i++) {
 			System.out.print(arr[i] + " ");

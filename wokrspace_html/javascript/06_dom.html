@@ -20,6 +20,7 @@
     <div>
         <div class="div2">안쪽 div2</div>
         <div class="div3">안쪽 div3</div>
+        <input type = "text" name="addr">
     </div>
     <!-- #wrap .div2 -->
     <div id="wrap">
@@ -69,6 +70,11 @@
         // #wrap .div2
         let child_div2 = wrap.getElementsByClassName("div2");
         console.log(child_div2);
+
+
+        // 이제 못씀
+        // let names = wrap.getElementsByName("addr");
+        // console.log(names);
 
         // css 선택자로 선택하는 방법
         let css_title = document.querySelector("#title");
