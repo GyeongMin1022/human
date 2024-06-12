@@ -18,30 +18,30 @@
     <button id="color">배경색 바꾸기</button>
     <button id="up">숫자 증가</button>
     <button id="down">숫자 감소</button>
-    <p id="number">0</p>
+    <div id="number">0</div>
 
     <script>
         // 배경색 변경
         let colorbt = document.getElementById('color');
         let colors = ['red', 'orange', 'yellow', 'green'];
-        let b = 0;
+        let i = 0;
 
         colorbt.addEventListener('click', function () {
-            document.body.style.backgroundColor = colors[b];
-            b++;
-            if (b === 3) {
-                b = 0;
+            document.body.style.backgroundColor = colors[i];
+            i++;
+            if (i === 3) {
+                i = 0;
             }
         });
 
         // 숫자 증가
-        let c = document.getElementById('up');
-        let d = document.getElementById('number');
+        let up = document.getElementById('up');
+        let number = document.getElementById('number');
         let n = 0;
 
-        c.addEventListener('click', function () {
+        up.addEventListener('click', function () {
             n += 1;
-            d.innerText = n;
+            number.innerText = n;
         });
 
         // 숫자 감소
@@ -49,7 +49,7 @@
 
         down.addEventListener('click', function () {
             n -= 1;
-            d.innerText = n;
+            number.innerText = n;
         });
     </script>
 </body>

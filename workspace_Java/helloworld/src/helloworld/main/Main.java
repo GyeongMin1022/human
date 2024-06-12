@@ -4,9 +4,7 @@ import java.util.Scanner;
 
 public class Main {
 	public static void main(String[] args) {
-<<<<<<< HEAD
 
-=======
 		Scanner scan = new Scanner(System.in);
 		int n = scan.nextInt();
 		double a = 0, b = 0;
@@ -21,6 +19,5 @@ public class Main {
 			}
 			System.out.println(sum);
 		}
->>>>>>> parent of 1c36fbb (240610)
 	}
 }

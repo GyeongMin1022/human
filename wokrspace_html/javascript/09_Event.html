@@ -5,8 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #cursor {
+            width: 30px;
+            height: 32px;
+            position: absolute;
+            top: 0;
+            display: none;
+        }
+
+        #cattower {
+            border: 1px solid red;
+            width: 300px;
+            height: 300px;
+            margin: 100px;
+        }
+    </style>
     <script>
-        
+
 
         function btn2click() {
             document.querySelector("#console").innerHTML += "버튼2 클릭 <br>";
@@ -18,6 +34,10 @@
         // console.log("btn1 : ", btn1);
 
 
+        // window : 브라우저를 뜻함
+        // window.addEventListener("load",function(){
+        //     console.log("btn1 : ", btn1);
+        // })
         window.onload = function () {
             let btn1 = document.querySelector("#btn1");
             console.log("btn1 : ", btn1);
@@ -57,15 +77,15 @@
 
             let id = document.querySelector("#id");
             id.addEventListener("keyup", function (event) {
-                console.log("keyup", event.keyCode);
-                // 엔터키
+                // console.log("keyup", event.keyCode);
+                // 엔터키 keyCode == 13
                 if (event.keyCode == 13) {
                     document.querySelector("#pw").focus();
                 }
             })
             document.querySelector("#pw").addEventListener("keyup", function (event) {
-                console.log("keyup", event.keyCode);
-                // 엔터키
+                // console.log("keyup", event.keyCode);
+                // 엔터키 keyCode == 13
                 if (event.keyCode == 13) {
                     document.querySelector("#login").click();
                 }
@@ -93,8 +113,8 @@
 
             })
 
-            document.querySelector("#console").innerHTML =  document.querySelector("#id").value;
-            
+            document.querySelector("#console").innerHTML = document.querySelector("#id").value;
+
             // document.querySelector("#console").innerHTML = pw;
             // id는 admin
             // password는 1234
@@ -102,7 +122,125 @@
             // alert 로그인되었습니다
             // 그 외에는 아이디 또는 비밀번호를 확인하세요
             // 아무것도 안적힌 경우 .. 는 필수입니다 출력
+
+
+            // 버튼3에 마우스가 올라갔을때 (hover)
+            // font size를 20으로
+            // 나갔을때 14로 변경
+
+
+            // id가 btn3인 dom(html 태그를) 가져와서 변수에 담기
+            let newBtn3 = document.querySelector("#btn3");
+            newBtn3.addEventListener('mouseover', function () {
+                console.log("over");
+                document.querySelector("#btn3").style.fontSize = "20px";
+            })
+
+            newBtn3.addEventListener('mouseout', function () {
+                console.log("out");
+                document.querySelector("#btn3").style.fontSize = "14px";
+            })
+
+
+            // 앞에 아무것도 안쓰면 브라우저 전체에 적용되는 이벤트
+            // addEventListener('mousemove', function(event){
+            //     // console.log("마우스 움직임");
+            //     document.querySelector("#cursor").style.display = "block"; 
+            //     document.querySelector("#cursor").style.left = (event.clientX+10) + "px"
+            //     document.querySelector("#cursor").style.top = (event.clientY+10) + "px"
+            // })
+
+            let cat = document.querySelector("#cattower");
+            // 커서 따라다니기
+            cat.addEventListener('mousemove', function (e) {
+                // console.log("마우스 움직임");
+                // 화면에 보이는 영역 기준 x,y
+                // 스크린이 내려왔더라도 그냥 지금 보이는 왼쪽 위 기준
+                // document.querySelector("#cursor").style.left = (event.clientX+10) + "px"
+
+                // 이벤트가 적용된 대상의 좌상단 기준으로
+                // document.querySelector("#cursor").style.left = (e.offsetX+10) + "px"
+
+                /*
+                event.pageX(left)와 
+                event.pageY(top)를 이용해서 
+                display를 보이게 해주기
+                */
+
+                // 스크롤에 관계 없이 문서 좌상단(왼쪽위) 기준이 된다
+                document.querySelector("#cursor").style.left = (e.pageX + 10) + "px"
+                document.querySelector("#cursor").style.top = (e.pageY + 18) + "px"
+                document.querySelector("#cursor").style.display = "block";
+            })
+
+            // 밖으로 나가면 커서 감추기
+            cat.addEventListener('mouseout', function () {
+                document.querySelector("#cursor").style.display = "none";
+            })
+
+            let idid = document.querySelector("#id");
+            let pwpw = document.querySelector("#pw");
+
+            // 이벤트명 : focus, blur
+            // #id에 적용해서
+            // foucs "아이디에 포커스 맞춰짐" 
+            // blur "아이디에 포커스 잃음"
+            idid.addEventListener("focus", function () {
+                document.querySelector("#console").innerHTML = "아이디에 포커스 맞춰짐"
+            })
+
+            idid.addEventListener("blur", function () {
+                document.querySelector("#console").innerHTML = "아이디에 포커스 잃음"
+            })
+            pwpw.addEventListener('keyup', function () {
+                document.querySelector("#console").innerHTML = pwpw.value;
+            })
+
+            // this : 그냥 쓰일때는 window 객체를 가지고 있다
+            console.log(this);
+            document.querySelector("#parent").addEventListener("click", function (event) {
+
+                // event.target : 이벤트가 발생된 DOM
+                console.log("event.target : ", event.target);
+
+                // event.currentTarget : 이벤트가 적용된 DOM
+                console.log("event.currenttarget : ", event.currentTarget);
+
+                // this === event.currentTarget
+                console.log("this : ", this);
+            })
+
+
+            document.querySelector("#child1").addEventListener("click", function (event) {
+                // 부모로 전달되는 이벤트를 중지한다
+                event.stopPropagation();
+
+                console.log("자식1 클릭");
+            })
+
+
+            let naver = document.querySelector("#form");
+            naver.addEventListener("submit", function (event) {
+
+                // 원래 html 고유 기능을 없애줌
+                event.preventDefault();
+
+
+
+                let value = document.querySelector("#keyword").value;
+                console.log(value, value.length)
+                if (value.length < 2) {
+                    console.log("두글자 이상 입력");
+                } else {
+                    console.log("네이버 검색");
+                    naver.submit();
+                }
+            });
+
+
+
         }
+
 
 
     </script>
@@ -116,11 +254,23 @@
     <div style="border: 2px solid black; width: 200px;height: 100px; padding: 20px; text-align: center;">
         <input type="text" placeholder="아이디" id="id"> <br><br>
         <input type="password" placeholder="비밀번호" id="pw"> <br>
-        <div id = "msg" style = "display: none; color: red;"></div>
+        <div id="msg" style="display: none; color: red;"></div>
         <button style="margin: 20px; width: 140px;" id="login"> 로그인 </button>
     </div>
     <div id="console"></div>
+    <img id="cursor" src="https://blog.kakaocdn.net/dn/chngAO/btsvk0W7Kbo/p6LbxcXkX8QwXs8M4kAK00/img.gif">
+    <div id="cattower"></div>
+    <div id="parent">
+        부모
+        <div id="child1">자식 1</div>
+        <div id="child2">자식 2</div>
+    </div>
 
+    <a href="http://www.naver.com" id="naver">네이버가기</a>
+    <form action="http://search.naver.com/search.naver" id="form">
+        <input id="keyword" type="text" name="query">
+        <input type="submit" value="네이버 검색">
+    </form>
 </body>
 
 </html>
