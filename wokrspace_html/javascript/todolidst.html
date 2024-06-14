@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <style>
+        #main {
+            border: 2px solid black;
+            width: 500px;
+            height: 500px;
+            padding: 30px;
+        }
+        div{
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> 할일 목록 </h1>
+    <input type="text" id="input" placeholder="할일을 입력해주세요"> <button id="addd"> 추가</button>
+    <br><input type="checkbox" id = "all"> 전체선택 <button id="seldel">선택삭제</button>
+    <div id="main"></div>
+
+
+    <script>
+        let input = document.querySelector("#input"); // 입력한 text
+        let main = document.querySelector("#main"); // todo가 추가될 부분
+        let addd = document.querySelector('#addd'); // 추가버튼
+        let seldel = document.querySelector("#seldel"); // 선택삭제버튼
+        let all = document.querySelector("#all")
+
+        // 추가
+        addd.addEventListener("click", function (e) {
+            main.innerHTML += '<div><input type="checkbox" class="todo">' + input.value + "<button class='del'>삭제</button></div> ";
+            // console.log(document.querySelectorAll('.del'))
+
+            // 삭제
+            // 삭제 버튼을 눌렀을때 삭제버튼은 브라우저가 로드되었을때는 정의가 되지 않았으므로 작동을 하지않는것이 ㅁ자고
+            let dels = document.querySelectorAll('.del');
+            for (let i = 0; i < dels.length; i++) {
+                dels[i].addEventListener("click", function (event) {
+                    event.target.parentNode.remove();
+                })
+            }
+        })
+
+
+
+        // // 한줄 지우기 부모에 이벤트 주기
+        // main.addEventListener("click", function (e) {
+        //     if (e.target.classList.contains('del')) {
+        //         e.target.parentNode.remove();
+        //     }
+        // })
+
+        // 선택삭제
+        // 선택삭제가 클릭이 되었을때는 이미 정의가 되어있는 상태라서 작동되는것
+        seldel.addEventListener("click", function () {
+            let chks = document.querySelectorAll("#main input[type='checkbox']:checked");
+            chks.forEach(function (e) {
+                e.parentNode.remove();
+            });
+        })
+
+        // 전체선택 
+        // 하나라도 체크가 해제되면 체크 해제
+        all.addEventListener("click",function(){
+            let chks = document.querySelectorAll(".todo");
+            chks.forEach(function (e) {
+                e.checked = true;
+            }); 
+        })
+    </script>
+
+
+</body>
+
+</html>
