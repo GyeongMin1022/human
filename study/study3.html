@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <style>
+        #main {
+            border: 2px solid black;
+            width: 500px;
+            height: 500px;
+            padding: 30px;
+            overflow-y: auto;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1> 할일 목록 </h1>
+    <input type="text" id="input" placeholder="할일을 입력해주세요"> <button id="addd"> 추가</button>
+    <br><input type="checkbox" id="all"> 전체선택 <button id="seldel">선택삭제</button>
+    <div id="main"></div>
+
+    <script>
+        let input = document.querySelector("#input"); // 입력한 text
+        let main = document.querySelector("#main"); // todo가 추가될 부분
+        let addd = document.querySelector('#addd'); // 추가버튼
+        let seldel = document.querySelector("#seldel"); // 선택삭제버튼
+        let all = document.querySelector("#all");
+
+        // 추가
+        addd.addEventListener("click", function (e) {
+            let todoDiv = document.createElement('div');
+            todoDiv.innerHTML = '<input type="checkbox" class="todo">' + input.value + 
+                                "<button class='del'>삭제</button>" + 
+                                "<button class='edit'>수정</button>" + 
+                                "<button class='up'>▲</button>" + 
+                                "<button class='down'>▼</button>";
+            main.appendChild(todoDiv);
+            input.value = '';
+        });
+
+        // 부모의 이벤트 사용
+        main.addEventListener("click", function(event) {
+            let target = event.target;
+
+            // 삭제
+            if (target.classList.contains('del')) {
+                target.parentNode.remove();
+            }
+
+            // 수정
+            if (target.classList.contains('edit')) {
+                let current = target.parentNode;
+                let newValue = prompt("수정할 내용을 입력하세요:", current.childNodes[1].nodeValue.trim());
+                if (newValue) {
+                    current.childNodes[1].nodeValue = " " + newValue + " ";
+                }
+            }
+
+            // 위로
+            if (target.classList.contains('up')) {
+                let current = target.parentNode;
+                if (current.previousElementSibling) {
+                    main.insertBefore(current, current.previousElementSibling);
+                }
+            }
+
+            // 아래로
+            if (target.classList.contains('down')) {
+                let current = target.parentNode;
+                if (current.nextElementSibling) {
+                    main.insertBefore(current.nextElementSibling, current);
+                }
+            }
+        });
+
+        // 선택삭제
+        seldel.addEventListener("click", function () {
+            let chks = document.querySelectorAll("#main input[type='checkbox']:checked");
+            chks.forEach(function (e) {
+                e.parentNode.remove();
+            });
+        });
+
+        // 전체선택
+        all.addEventListener("click", function () {
+            let chks = document.querySelectorAll(".todo");
+            chks.forEach(function (e) {
+                e.checked = true;
+            });
+        });
+    </script>
+</body>
+
+</html>
