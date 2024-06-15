@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo list</title>
+    <style>
+        #main {
+            border: 2px solid black;
+            width: 500px;
+            height: 500px;
+            padding: 30px;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>상품정보</h1>
+    <input type="text" id="imageLink" placeholder="이미지 링크 입력">
+    <input type="text" id="productName" placeholder="이름 입력">
+    <input type="text" id="productPrice" placeholder=" 가격 입력">
+    <button id="add">추가</button>
+    <br><input type="checkbox" id="all"> 전체선택 <button id="seldel">선택삭제</button>
+    <div id="main"></div>
+
+    <script>
+        let imageLink = document.querySelector("#imageLink");
+        let productName = document.querySelector("#productName");
+        let productPrice = document.querySelector("#productPrice");
+        let main = document.querySelector("#main");
+        let add = document.querySelector('#add');
+        let seldel = document.querySelector("#seldel");
+        let all = document.querySelector("#all");
+
+        // 추가
+        add.addEventListener("click", function (e) {
+            main.innerHTML += '<div><input type="checkbox" class="todo"><img src="'
+                + imageLink.value
+                + '" style="width:100px; height:100px;"> ' +
+                productName.value
+                + '  ' + productPrice.value
+                + '원 <button class="del">삭제</button></div>';
+
+            // 삭제
+            let dels = document.querySelectorAll('.del');
+            for (let i = 0; i < dels.length; i++) {
+                dels[i].addEventListener("click", function (event) {
+                    event.target.parentNode.remove();
+                });
+            }
+        });
+
+        // 선택삭제
+        seldel.addEventListener("click", function () {
+            let chks = document.querySelectorAll("#main input[type='checkbox']:checked");
+            chks.forEach(function (e) {
+                e.parentNode.remove();
+            });
+        });
+
+        // 전체선택 
+        all.addEventListener("click", function () {
+            let chks = document.querySelectorAll(".todo");
+            chks.forEach(function (e) {
+                e.checked = true;
+            });
+        });
+    </script>
+</body>
+
+</html>
