@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        fieldset {
+
+            margin-bottom: 50px;
+            width: 300px;
+            height: 250px;
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 70%;
+        }
+    </style>
+</head>
+
+<body>
+    <fieldset>
+        <legend>주문 정보</legend>
+        <br>이름 : <input type="text" id="name">
+        <br><br>연락처 : <input type="text" id="number">
+        <br><br>주소 : <input type="text" id="address">
+    </fieldset>
+    <fieldset>
+        <legend>배송 정보</legend>
+        <br><input type="checkbox" id="check"> 주문 정보와 배송 정보가 같습니다
+        <br><br>이름 : <input type="text" id="bname">
+        <br><br>연락처 : <input type="text" id="bnumber">
+        <br><br>주소 : <input type="text" id="baddress">
+
+    </fieldset>
+    <button style="width: 330px; height: 40px; margin-top: 0px;">결제하기</button>
+    <script>
+        let name1 = document.querySelector("#name");
+        let name2 = document.querySelector("#bname");
+        let num1 = document.querySelector("#number");
+        let num2 = document.querySelector("#bnumber");
+        let address1 = document.querySelector("#address");
+        let address2 = document.querySelector("#baddress");
+        let chk = document.querySelector("#check");
+
+
+        chk.addEventListener("change", function () {
+            if(chk.checked){
+                name2.value = name1.value;
+                num2.value = num1.value;
+                address2.value = address1.value;
+            }
+        })
+
+    </script>
+</body>
+
+</html>

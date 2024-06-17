@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            /* border: 1px solid red; */
+            display: inline-block;
+            height: 500px;
+        }
+        #main{
+            width: 350px;
+            height: 300px;
+        }
+        #sub1 {
+            width: 100px;
+            height: 100px;
+        }
+        #sub2 {
+            width: 100px;
+            height: 100px;
+        }
+        #sub3 {
+            width: 100px;
+            height: 100px;
+        }
+        #right{
+            vertical-align: top;
+            padding-top: 100px;
+            height: 400px;
+        }
+    .dcolor{
+            width : 300px;
+            height: 100px;
+            border: 1px solid black;
+        }
+        .red{
+            background-color: red;
+        }
+        .green{
+            background-color: green;
+        }
+        .blue{
+            background-color: blue;
+        }
+    </style>
+</head>
+<body>
+    <h1>에디오피아 게뎁</h1>
+    <div id="wrap">
+        <div id="left">
+            <img id="main"src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSgARldygWkeUJSXhp-YQNbV7UoTrC9onwqA&s">
+            <br>
+            <img id = "sub1" src = "https://dimg.donga.com/wps/NEWS/IMAGE/2021/02/08/105325025.1.jpg">
+            <img id = "sub2" src = "https://dimg.donga.com/wps/NEWS/IMAGE/2023/12/07/122534260.2.jpg">
+            <img id = "sub3" src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9V8_arI2jQ9ySODwa3EM-_9avaxcmF2LJmiwU5TAuYYQnzR9-zRxomK4b6dZu-GdKiig&usqp=CAU">
+
+        </div>
+        <div id="right">
+            상품명 : 에디오피아 게뎁
+            <br>판매가 : 9,000원
+            <br>배송비 : 3,000원
+            <br>(50,000원 이상 구매 시 무료)
+            <br>적립금 : 180원(2%)
+            <br>로스팅 : 2019.06.17
+            <br> <button>장바구니 담기</button>
+            <br><a href="#">상세 설명 보기</a>
+            </div>
+        
+    </div>
+    <div class = "dcolor">
+        여기 색을 변경
+        <button id="bred">빨강</button>
+        <button id="bgreen">초록</button>
+        <button id="bblue">파랑</button>
+    </div>
+    <script>
+
+        // 자식들에게 이벤트를 부여해서 바꾸는 방법
+        let main = document.querySelector("#main");
+        let sub1 = document.querySelector("#sub1");
+        let sub2 = document.querySelector("#sub2");
+        let sub3 = document.querySelector("#sub3");
+
+        sub1.addEventListener("click",function(){
+            main.setAttribute("src",sub1.getAttribute("src"));
+        })
+        sub2.addEventListener("click",function(){
+            main.setAttribute("src",sub2.getAttribute("src"));
+        })
+        sub3.addEventListener("click",function(){
+            main.setAttribute("src",sub3.getAttribute("src"));
+        })
+
+        // 특정 공간의 색을 바꾸자
+        // 빨 초 파 핑
+        // 클래스를 만들어 두고 버튼을 클릭 할 때마다
+
+        let button1 = document.querySelector("#bred");
+        let button2 = document.querySelector("#bgreen");
+        let button3 = document.querySelector("#bblue");
+        let dcolor = document.querySelector(".dcolor");
+
+        button1.addEventListener("click",function(){
+            dcolor.classList.remove("blue");
+            dcolor.classList.remove("green");
+            dcolor.classList.add("red");
+        })
+
+        button2.addEventListener("click",function(){
+            dcolor.classList.remove("red");
+            dcolor.classList.remove("blue")
+            dcolor.classList.add("green");
+        })
+
+        button3.addEventListener("click",function(){
+            dcolor.classList.remove("red");
+            dcolor.classList.remove("green")
+            dcolor.classList.add("blue");
+        })
+        
+    </script>
+</body>
+</html>

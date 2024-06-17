@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="time"></div>
+    <br>
+    태어난 년도를 입력하세요<br>
+     <input type="checkbox" id = "man">만나이 계산 <br>
+    <input type = "text" id ="age"><button id="agecalc">나이계산</button>
+    
+    <div id="result"></div>
+    <script>
+        let time = document.querySelector("#time")
+        // time은 div고 그 안에 컨텐츠 영역에 글씨쓰기
+        // time.textContent = "textContent";
+        // time.innerText = "innerText";
+        // time.innerHTML = "innerHTML";
+        // time.innerText = "시 : 분 : 초";
+
+        let now = new Date();
+        let h = now.getHours();
+        let m = now.getMinutes();
+        let s = now.getSeconds();
+        // let hms = h + "시 " + m + "분 " + s + "초";
+
+        // setInterval(function () {
+        //     let now = new Date();
+        //     let h = now.getHours();
+        //     let m = now.getMinutes();
+        //     let s = now.getSeconds();
+
+        //     if (s < 10) {
+        //         s = "0" + s;
+        //     }
+
+        //     let hms = h + "시 " + m + "분 " + s + "초";
+        //     time.innerText = hms;
+        // }, 1000 / 4);
+
+       
+        time_refresh();
+        function time_refresh(){
+            setTimeout(function(){            
+            let now = new Date();
+            let h = now.getHours();
+            let m = now.getMinutes();
+            let s = now.getSeconds();
+
+            if (s < 10) {
+                s = "0" + s;
+            }
+
+            
+            let hms = h + "시 " + m + "분 " + s + "초 ";
+            hms += now.getFullYear()+"년"
+            time.innerText = hms;
+
+            time_refresh();
+        },1000/4)
+        }
+        let calc = document.querySelector("#agecalc");
+        let age = document.querySelector("#age");
+        let result = document.querySelector("#result")
+        let man = document.querySelector("#man");
+        calc.addEventListener("click",function(){
+            if(man.checked == true){
+            result.innerText = now.getFullYear()  - age.value  + "살 입니다";
+        } else{
+            result.innerText = now.getFullYear()  - age.value + 1 + "살 입니다";
+        }
+        })
+
+    </script>
+</body>
+
+</html>

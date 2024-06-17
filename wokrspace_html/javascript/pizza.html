@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        피자 주문 시스템
+        <hr>
+        피자선택
+        <br><select id="pizza">
+            <option value="cheeze">치즈피자</option>
+            <option value="potato">포테이토 피자</option>
+            <option value="sweet">고구마 피자</option>
+            <option value="pp">페퍼로니</option>
+        </select>
+        <hr>
+        토핑추가
+        <br><label><input type="checkbox" id="toping" name="toping" value="cheeze">치즈</label>
+        <br><label><input type="checkbox" id="toping" name="toping" value="bacon">베이컨</label>
+        <br><label><input type="checkbox" id="toping" name="toping" value="tomato">토마토</label>
+        <br><label><input type="checkbox" id="toping" name="toping" value="olive">올리브</label>
+        <br><label><input type="checkbox" id="toping" name="toping" value="onion">양파</label>
+        <br><label><input type="checkbox" id="toping" name="toping" value="pine">파인애플</label>
+        <hr>
+        요청사항
+        <br><input type="text" id="help">
+
+        <br><br>
+        <button id="order">
+            주문하기
+        </button>
+        <div id="result">
+
+        </div>
+
+    </div>
+    <script>
+        // 피자파트
+        let pizza = document.querySelector("#pizza");
+        let pmoney = 10000; // 피자가격(기본 치즈가격으로 세팅)
+        let tmoney = 0; // 토핑가격
+        let pizzaName = "치즈피자"; // 피자이름(기본 치즈피자로 세팅)
+
+        // 피자선택
+        pizza.addEventListener("change", function () {
+            if (pizza.value == cheeze) {
+                pmoney = 10000;
+                pizzaName = "치즈 피자"
+            } else if (pizza.value == potato) {
+                pmoney = 13000;
+                pizzaName = "포테이토 피자"
+            } else if (pizza.value == sweet) {
+                pmoney = 13000;
+                pizzaName = "고구마 피자"
+            } else {
+                pmoney = 12000;
+                pizzaName = "페퍼로니 피자"
+            }
+        })
+
+        // 토핑 선택
+        let toping = document.getElementsByName("toping");
+        // console.log(toping);
+
+        // 토핑 가격 추가
+        for (let i = 0; i < toping.length; i++) {
+            toping[i].addEventListener("change", function () {
+                if (toping[i].value == "cheeze" && toping[i].checked == true) {
+                    tmoney += 1500;
+                } else if (toping[i].value == "cheeze" && toping[i].checked == false) {
+                    tmoney -= 1500;
+                } else if (toping[i].value == "bacon" && toping[i].checked == true) {
+                    tmoney += 2000;
+                } else if (toping[i].value == "bacon" && toping[i].checked == false) {
+                    tmoney -= 2000;
+                } else if (toping[i].value == "tomato" && toping[i].checked == true) {
+                    tmoney += 1000;
+                } else if (toping[i].value == "tomato" && toping[i].checked == false) {
+                    tmoney -= 1000;
+                } else if (toping[i].value == "olive" && toping[i].checked == true) {
+                    tmoney += 1000;
+                } else if (toping[i].value == "olive" && toping[i].checked == false) {
+                    tmoney -= 1000;
+                } else if (toping[i].value == "onion" && toping[i].checked == true) {
+                    tmoney += 1000;
+                } else if (toping[i].value == "onion" && toping[i].checked == false) {
+                    tmoney -= 1000;
+                } else if (toping[i].value == "pine" && toping[i].checked == true) {
+                    tmoney += 5000;
+                } else if (toping[i].value == "pine" && toping[i].checked == false) {
+                    tmoney -= 5000;
+                }
+            })
+
+
+
+
+
+        }
+
+        let topringResult = "";
+        let order = document.querySelector("#order");
+        let result = document.querySelector("#result");
+        let help = document.querySelector("#help");
+
+        order.addEventListener("click", function () {
+            for (let i = 0; i < toping.length; i++) {
+                if (toping[i].value == "cheeze" && toping[i].checked == true) {
+                    topringResult += "치즈 추가(+1,500원)\n ";
+                } else if (toping[i].value == "bacon" && toping[i].checked == true) {
+                    topringResult += "베이컨 추가(+2,000원)\n ";
+                } else if (toping[i].value == "tomato" && toping[i].checked == true) {
+                    topringResult += "토마토 추가(+1,000원)\n ";
+                } else if (toping[i].value == "olive" && toping[i].checked == true) {
+                    topringResult += "올리브 추가(+1,000원)\n ";
+                } else if (toping[i].value == "onion" && toping[i].checked == true) {
+                    topringResult += "양파 추가(+1,000원)\n ";
+                } else if (toping[i].value == "pine" && toping[i].checked == true) {
+                    topringResult += "파인애플 추가(+5,000원)\n ";
+                }
+            }
+            result.innerText += "피자 : \n" + pizzaName + "\n";
+            result.innerText += "토핑 : \n" + topringResult + "\n";
+            result.innerText += "요청사항 : \n" + help.value;
+            result.innerText += "주문금액 : \n" + (pmoney + tmoney) + "원\n";
+
+        })
+
+    </script>
+</body>
+
+</html>
