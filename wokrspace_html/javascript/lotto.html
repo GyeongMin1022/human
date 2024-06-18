@@ -9,6 +9,9 @@
         .hide {
             display: none;
         }
+        .contents{
+            border: 1px solid black;
+        }
     </style>
 </head>
 
@@ -33,6 +36,8 @@
         <div>두번째 질문입니다 <button class="btn">+</button></div>
         <div class="contents hide">두번째 내용입니다 두번째 내용입니다 두번째 내용입니다 두번째 내용입니다 두번째 내용입니다 두번째 내용입니다</div>
     </div>
+
+    <h1>캐러셀</h1>
     <!-- parseInt(Math.randim()*45 + 1) -->
     <script>
         let lotto = [];
@@ -97,19 +102,21 @@
             }
 
         })
-     
+
         // Q&A 아코디언
+        let btns = document.querySelectorAll(".btn");
         let contents = document.querySelectorAll(".contents");
-        let btn = document.querySelectorAll(".btn");
-        console.log(contents[0].getAttribute())
-        for (let i = 0; i < btn.length; i++) {
-            btn[i].addEventListener("click", function () {
-                if (contents[i].getAttribute("hide")== true) {
-                    contents[i].classList.remove("hide")
+
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function () {
+                if (contents[i].classList.contains("hide")) {
+                    contents[i].classList.remove("hide");
+                    btns[i].innerText = "-";
                 } else {
                     contents[i].classList.add("hide");
+                    btns[i].innerText = "+";
                 }
-            })
+            });
         }
         // 캐러셀
 
