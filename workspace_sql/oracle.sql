@@ -321,3 +321,165 @@ from emp;
 -- 실습문제5
 -- 가운데 글씨만 *
 -- MARTIN > MA*TIN, SCOTT > SC*TT
+
+select 
+    trunc(1234.5678),
+    trunc(1234.5678,2),
+    trunc(1234.5678,-2),
+    trunc(-12.34)
+from dual;
+
+select
+ceil(3.14),
+floor(3.14),
+ceil(-3.14),
+floor(-3.14)
+from dual;
+
+-- sysdate : 지금 오라클 pc의 시간 출력
+-- 강사 pc는 9시간 차이가 난다(영국 0시 한국 +9시)
+-- 날짜 정보 중 일부만 select로 표시됨
+select sysdate from dual;
+
+select sysdate, sysdate+1,sysdate-1 from dual;
+
+
+-- 컬럼에 +를 적으면 모두 숫자로 변경해서 적용
+ -- || 숫자도 문자로 적용
+ 
+ select to_char(sysdate+9/24,'yyyy"년" mm"월" dd"일" hh24"시" mi"분" ss"초"')
+ from dual;
+ 
+ select
+ sysdate - to_date('2024-05-07','yyyy-mm-dd')
+ from dual;
+ 
+ select
+ comm, nvl(comm,-1),
+ sal,
+ sal + comm,
+ sal + nvl(comm,0)
+ from emp;
+ 
+ select * from emp
+ where comm = 0 or comm is null;
+ 
+ select * from emp
+ where nvl(comm,0) = 0;
+ 
+ select
+case
+when comm is null then 'N/A'
+else to_char(comm)
+-- '' || comm
+end as new_comm
+from emp;
+
+select
+case
+when comm is null then 0
+else comm
+end
+from emp;
+
+-- Q1
+select 
+empno,
+rpad(substr(empno,1,2),length(empno),'*') as MASKIN_EMPNO,
+ename,
+rpad(substr(ename,1,1),length(ename),'*') as MASKIN_EMPNO
+from emp
+where length(ename)>=5 and length(ename)<6;
+
+--Q2
+select empno,ename,sal,
+trunc(sal/21.5,2) as DAY_PAY,
+round(sal/21.5/8,1) as TIME_PAY
+from emp;
+
+--Q3
+select 
+empno,
+ename,
+to_char(hiredate, 'yyyy/mm/dd') as hiredate,
+to_char(add_months(hiredate, 3), 'yyyy/mm/dd') as r_job,
+case
+    when comm is null then 'N/A'
+    else to_char(comm)
+end as comm
+from emp;
+
+--Q4
+select empno, ename, mgr,
+case
+when substr(mgr,1,2) is null then '0000'
+when substr(mgr,1,2) ='75' then '5555'
+when substr(mgr,1,2) ='76' then '6666'
+when substr(mgr,1,2) ='77' then '7777'
+when substr(mgr,1,2) ='78' then '8888'
+else to_char(mgr)
+end as CHG_MGR
+from emp;
+
+--Q4_2
+select empno, ename, mgr,
+case
+when mgr is null then '0000'
+when mgr like '75%' then '5555'
+when mgr like '76%' then '6666'
+when mgr like '77%' then '7777'
+when mgr like '78%' then '8888'
+else ''|| mgr
+end as CHG_MGR
+from emp;
+
+--Q4_3
+select empno, ename, mgr,
+case
+when lpad(mgr,2) is null then '0000'
+when lpad(mgr,2) like '75%' then '5555'
+when lpad(mgr,2) like '76%' then '6666'
+when lpad(mgr,2) like '77%' then '7777'
+when lpad(mgr,2) like '78%' then '8888'
+else ''|| mgr
+end as CHG_MGR
+from emp;
+
+-- count처럼 null은 제외됨
+-- count는 *를 많이 씀
+select sum(sal), count(sal),count(*),count(comm) from emp;
+
+select count(*) from emp where ename like '%A%';
+
+select max(sal), max(ename),min(hiredate), min(comm),avg(sal)
+from emp;
+
+select sum(sal), avg(sal) from emp where deptno=10
+union all
+select sum(sal), avg(sal) from emp where deptno=20
+union all
+select sum(sal), avg(sal) from emp where deptno=30;
+
+-- distinct처럼 중복을 제거해줌, 분류해줌
+-- select
+select deptno, avg(sal),sum(sal),count(*) from emp
+group by deptno;
+
+select deptno, empno from emp
+group by deptno, empno;
+
+select deptno, job, count(*)
+from emp
+-- where count(*) >= 2
+group by deptno, job
+order by deptno, job;
+
+--having : group by 에서만 사용된다
+-- 집계함수를 조건으로 걸고 싶을때
+
+select deptno, job, avg(sal)
+from emp
+group by deptno, job
+--    having avg(sal)>=2000;
+--    having count(*) >=2
+having deptno = 20;
