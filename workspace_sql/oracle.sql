@@ -597,7 +597,16 @@ from emp e right outer join dept d on (e.deptno=d.deptno)
 order by deptno, ename;
 
 --Q4
-
+select 
+d.deptno, d.dname, 
+e1.empno, e1.ename, e1.mgr, e1.sal, e1.deptno, 
+s.losal, s.hisal,s.grade,
+e2.empno mgr_empno,e2.ename mgr_ename
+from emp e1 
+left outer join salgrade s on( e1.sal>=s.losal and e1.sal<=s.hisal) 
+right outer join dept d on(e1.deptno = d.deptno)
+left outer join emp e2 on(e1.mgr = e2.empno)
+order by d.deptno, e1.empno;
 
 select sal
 from emp
@@ -629,3 +638,180 @@ where
 sal in(
 select max(sal) from emp group by deptno
 );
+
+
+select *
+from(
+    select * from emp where deptno=10
+);
+
+select rownum, emp.*
+from emp
+--where rownum = 1;
+order by ename;
+
+select rownum ,e.*
+from(
+    select * from emp order by ename
+    )e;
+    
+
+select * 
+from(select job, count(*) cnt from emp
+group by job)
+where cnt >= 3;
+
+with e10 as(select * from emp where deptno = 10)
+select * from e10;
+
+--Q1
+select emp.job, emp.empno, emp.ename, emp.sal, dept.deptno, dept.dname
+from emp, dept
+where emp.deptno= dept.deptno 
+and
+job = (select job
+from emp
+where ename = 'ALLEN')
+order by sal desc ,empno desc;
+
+--Q2
+select e.empno, e.ename, d.dname, e.hiredate,d.loc,e.sal,s.grade
+from emp e, dept d, salgrade s
+where e.deptno = d.deptno and 
+e.sal >= s.losal and e.sal<=s.hisal 
+and e.sal>=(select avg(sal) from emp)
+order by sal desc, empno;
+
+--Q3
+select e.empno, e.ename, e.job, e.deptno, d.dname, d.loc 
+from emp e
+join dept d on e.deptno = d.deptno
+where e.deptno = 10 and e.job not in(select job from emp where deptno = 30);
+
+--Q4
+select e.empno, e.ename, e.sal, s.grade
+from emp e, salgrade s
+where 
+e.sal >= s.losal and e.sal <= s.hisal
+and
+sal>(select max(sal) from emp where job='SALESMAN');
+
+
+-- 12장
+select * from emp;
+desc emp;
+
+create table emp_ddl(
+empno number(4),   -- 숫자 4자리
+ename varchar2(10), -- 10바이트
+job varchar2(9),    -- 제한보다 적은 글씨가 적히면 글씨 만큼의 공간만 차지
+mgr number(4),
+hiredate date,
+sal number(7,2), -- 2는 소수점 둘째 자리까지 표시 할 수 있다
+comm number(7,2),
+deptno number(2)
+);
+
+select *from emp_ddl;
+desc emp_ddl;
+
+create table dept_ddl
+as select * from dept;
+
+select * from dept_ddl;
+    
+create table emp_ddl_30
+as select empno, ename, sal from emp where deptno = 30;
+
+select * from emp_ddl_30;
+
+create table emp_alter
+as select * from emp;
+
+select * from emp_alter;
+
+alter table emp_alter
+add hp varchar2(20);
+
+alter table emp_alter
+rename column hp to tel;
+
+alter table emp_alter
+modify empno number(5);
+
+desc emp_alter;
+
+-- 크기가 커지는건 가능 (줄어드는건 불가능)
+alter table emp_alter
+modify empno number(4);
+
+alter table emp_alter
+drop column tel;
+
+select * from emp_alter;
+
+alter table emp_alter
+drop column comm;
+
+rename emp_alter to emp_rename;
+select * from emp_rename;
+
+truncate table emp_rename;
+select * from emp_rename;
+
+drop table emp_rename;
+
+create table dept_temp
+as select * from dept;
+
+select * from dept_temp;
+
+insert into dept_temp (deptno,dname,loc)
+values(50,'DATABASE','SEOUL');
+
+-- 테이블명 뒤에 ()를 생략하면 모든 컬럼
+insert into dept_temp
+values(60, 'network','Busan');select * from dept_temp;
+
+insert into dept_temp
+values(70, '웹',null);
+
+select * from dept_temp;
+
+-- ''도 null로 보이는데 그래도 null 이라고 쓰자
+-- java에서 읽을때 ''는 null로 인식하지 않기 때문에
+insert into dept_temp
+values(80, 'mobile','');
+
+-- 컬럼을 생략하면 자동으로 null이 들어간다
+insert into dept_temp(deptno,loc)
+values (90, '인천');
+
+--240627
+create table emp_temp
+as select * from emp;
+
+select * from emp_temp;
+
+insert into emp_temp(empno, ename, hiredate)
+values(9999,'홍길동','2001/01/02');
+
+insert into emp_temp(empno, ename, hiredate)
+values(1111,'성춘향','2001-02-03');
+
+insert into emp_temp(empno, ename, hiredate)
+values(2111,'이순신',TO_DATE('2001-03-04','YYYY-mm-dd'));
+
+insert into emp_temp(empno, ename, hiredate)
+values(3111,'심청이',sysdate);
+
+insert into emp_temp
+select * from emp where deptno =10;
+
+create table dept_temp2
+as select * from dept;
+
+select * from dept_temp2;
+
+update dept_temp2
+set loc = 'seoul';
