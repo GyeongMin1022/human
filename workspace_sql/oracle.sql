@@ -805,8 +805,7 @@ values(2111,'이순신',TO_DATE('2001-03-04','YYYY-mm-dd'));
 insert into emp_temp(empno, ename, hiredate)
 values(3111,'심청이',sysdate);
 
-insert into emp_temp
-select * from emp where deptno =10;
+insert into emp_tempselect * from emp where deptno =10;
 
 create table dept_temp2
 as select * from dept;
@@ -815,3 +814,112 @@ select * from dept_temp2;
 
 update dept_temp2
 set loc = 'seoul';
+
+rollback;
+
+-- update 하기전에 select로 where조건이 정확한지 확인하고
+-- where를 그대로 복사해서 update에 붙여놓도록 하자
+update dept_temp2
+set dname = 'DATABASE',
+    loc = 'SEOUL'
+where deptno = 40;
+
+select * from dept_temp2;
+
+create table emp_temp2
+as select * from emp;
+
+select * from emp_temp2
+where job = 'MANAGER';
+
+delete emp_temp2
+where job = 'MANAGER';
+
+-- emp_temp2에서 
+-- 급여가 1000 이하인 사원의
+-- 급여를 3% 인상
+update emp_temp2
+set sal = sal * 1.03
+where sal <= 1000;
+
+select ename, sal from emp_temp2;
+
+delete emp_temp2;
+select * from emp_temp2;
+
+rollback;
+
+--【문항1】
+-- 테이블의 사원번호와 사원이름 출력
+select rpad(substr(empno,1,2),length(empno),'*') empno, ename
+from emp
+-- 조건에 대해서항상 참이 되므로 모든 결과값 출력
+where 1 = 1
+-- 사원번호(empno)를 높은숫자부터 낮은숫자 순으로(내림차순 desc)로 정렬
+order by empno desc;
+
+
+select e.empno, e.ename, d.dname,d.loc
+from emp e
+left outer join dept d using(deptno)
+--부서이름(dname) 기준으로 내림차순 정렬(desc)
+order by dname desc;
+
+select * from dict;
+select * from user_tables;
+
+-- index 색인
+-- 오름차순, 내림차순 따로 관리
+create index idx_emp_sal on emp(sal);
+
+select * from user_indexes;
+
+drop index idx_emp_sal;
+
+-- 강제 hint
+select /*+ index(idx_emp_sal) */
+* from emp e
+order by empno desc;
+
+-- plan
+-- sql developer에서는 상단 세번째 아이콘 "계획설명"
+
+create index idx_emp_empno_desc
+on emp(empno desc);
+
+select max(empno)+1
+from emp;
+
+insert into emp_temp2 (empno, ename)
+values (
+    (select max(empno)+1 from emp_temp2),
+    '신입이2'
+);
+
+select * from emp_temp2;
+
+create table tb_user (
+    user_id number,
+    user_name varchar2(30)
+);
+
+select * from tb_user;
+
+create sequence seq_user;
+
+select seq_user.nextval from dual;
+select seq_user.currval from dual;
+
+
+
+insert into tb_user(user_id, user_name)
+values(seq_user.nextval, '유저명1');
+select * from tb_user;
+
+insert into tb_user(user_id, user_name)
+values(seq_user.nextval, '유저명2');
+select * from tb_user;
+
+insert into tb_user(user_id, user_name)
+values(seq_user.nextval, '유저명3');
+select * from tb_user;
