@@ -992,3 +992,15 @@ update emp_fk set deptno = 101;
 update dept_fk set deptno1 = 101;
 delete dept_fk;
 truncate table dept_fk;
+
+delete emp_fk;
+
+create table table_defualt(
+login_id varchar2(20),
+login_pwd varchar2(20),
+tel varchar2(20) default ' 000-0000'
+);
+
+insert into table_defualt
+values('id','pw','010-1233,4567');
+select * from emp;
