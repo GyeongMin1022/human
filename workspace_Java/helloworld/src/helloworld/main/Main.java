@@ -4,19 +4,12 @@ import java.util.*;
 
 public class Main {
     public static void main(String[] args) {
-    	Scanner scan = new Scanner(System.in);
-    	int n = scan.nextInt();
-    	int arr[] = new int[n];
-
-    	for(int i=0; i<n; i++) {
-    		arr[i] = scan.nextInt();
-    	}
-    	
-    	
-    	Arrays.sort(arr);
-    	for(int i=0; i<arr.length;i++) {
-    		System.out.println(arr[i]);
-    	}
-    	
+        Scanner scan = new Scanner(System.in);
+        int n = scan.nextInt();
+        long calc = 1;
+        for (int i = n; i > 0; i--) {
+            calc *= i;
+        }
+        System.out.println(calc);
     }
 }
