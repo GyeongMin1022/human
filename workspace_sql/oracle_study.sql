@@ -35,3 +35,5 @@ alter table emp_hw
 add remark varchar2(30);
 
 select * from emp_hw;
+
+select count(*),comm from emp group by comm;

@@ -5,18 +5,20 @@ import java.util.Scanner;
 public class Main {
 	public static void main(String[] args) {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("몇줄 찍으시겠습니까");
-		System.out.printf("입력 > ");
-		int n = scan.nextInt(); // 몇줄 찍을지
+		int h = scan.nextInt(); // 입력값
+		int i = 1; // 1부터 곱하기
+		int sum = 1; // 계산 값 저장
+		while (true) {
+			sum *= i;
+			if(sum>h) {
+				System.out.println(i + " = " + sum);
+				break;
+			}
+			System.out.print(i + " * ");
+			
 
-		for (int i = n; i >= 1; i--) {
-			for (int j = 1; j <= n - i; j++) {
-				System.out.print(" ");
-			}
-			for (int j = 2 * i - 1; j > 0; j--) {
-				System.out.print("*");
-			}
-			System.out.println();
+			i++;
 		}
+
 	}
 }
