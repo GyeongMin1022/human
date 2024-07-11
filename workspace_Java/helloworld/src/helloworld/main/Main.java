@@ -10,15 +10,23 @@ public class Main {
 		int sum = 1; // 계산 값 저장
 		while (true) {
 			sum *= i;
-			if(sum>h) {
+			if (sum > h) {
 				System.out.println(i + " = " + sum);
 				break;
 			}
 			System.out.print(i + " * ");
-			
 
 			i++;
 		}
 
+		System.out.println("======================");
+		sum = 1;
+
+		for (i = 1; sum < h; i++) {
+			sum *= i;
+			System.out.print(i + " ");
+		}
+		String[] a = {"1", "5", "4", "2"};
+		
 	}
 }
