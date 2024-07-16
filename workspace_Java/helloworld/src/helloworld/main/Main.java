@@ -1,32 +1,20 @@
 package helloworld.main;
 
-import java.util.Scanner;
-
 public class Main {
 	public static void main(String[] args) {
-		Scanner scan = new Scanner(System.in);
-		int h = scan.nextInt(); // 입력값
-		int i = 1; // 1부터 곱하기
-		int sum = 1; // 계산 값 저장
-		while (true) {
-			sum *= i;
-			if (sum > h) {
-				System.out.println(i + " = " + sum);
-				break;
+		String[] arr = new String[] { "남", "현", "우", "뒤", "졌", "다" };
+
+		for (int i = 0; i < arr.length * 3; i++) {
+			for (int j = 0; j <= i; j++) {
+				if (j > 11) {
+					System.out.print(arr[j - 12]);
+				} else if (j > 5) {
+					System.out.print(arr[j - 6]);
+				} else {
+					System.out.print(arr[j]);
+				}
 			}
-			System.out.print(i + " * ");
-
-			i++;
+			System.out.println("");
 		}
-
-		System.out.println("======================");
-		sum = 1;
-
-		for (i = 1; sum < h; i++) {
-			sum *= i;
-			System.out.print(i + " ");
-		}
-		String[] a = {"1", "5", "4", "2"};
-		
 	}
 }
