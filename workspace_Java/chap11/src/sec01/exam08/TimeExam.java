@@ -1,5 +1,7 @@
 package sec01.exam08;
 
+import java.lang.String;
+
 public class TimeExam {
 
 	public static void main(String[] args) {

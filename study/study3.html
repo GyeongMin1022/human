@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Todo list</title>
     <style>
+        div{
+            border: 1px solid red;
+        }
         #main {
             border: 2px solid black;
             width: 500px;
@@ -83,7 +86,7 @@
         // 선택삭제
         seldel.addEventListener("click", function () {
             let chks = document.querySelectorAll("#main input[type='checkbox']:checked");
-            chks.forEach(function (e) {
+            chks. (function (e) {
                 e.parentNode.remove();
             });
         });

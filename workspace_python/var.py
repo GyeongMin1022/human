@@ -21,3 +21,20 @@ print(type(a))
 a='sadrf'
 print(type(a))
 print(type(print))
+# 정밀도
+a = 0.123456789123456789
+print(a) # 파이썬의 정밀도 : 소수점 14자리까지
+
+a = True
+b = False
+c= None
+
+id ='아이디'
+html= f'''
+<div> 
+
+    <strong>{id}</strong>
+</div>
+'''
+
+print(html)
