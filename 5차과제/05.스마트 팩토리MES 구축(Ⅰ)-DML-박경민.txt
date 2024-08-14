@@ -1,0 +1,1 @@
+select  from 주문상세 join 메뉴 on 주문상세.메뉴_id = 메뉴.메뉴_id
